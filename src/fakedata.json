@@ -1,0 +1,143 @@
+[
+    {
+      "itemid": 1,
+      "name": "Introduction to Computer Science",
+      "price": 59.99,
+      "description": "Comprehensive introduction to the principles of computer science and programming.",
+      "tags": ["computer science", "programming", "textbook"]
+    },
+    {
+      "itemid": 2,
+      "name": "Calculus: Early Transcendentals",
+      "price": 79.99,
+      "description": "In-depth study of calculus including derivatives, integrals, and applications.",
+      "tags": ["calculus", "mathematics", "textbook"]
+    },
+    {
+      "itemid": 3,
+      "name": "Organic Chemistry",
+      "price": 129.99,
+      "description": "Detailed exploration of organic chemistry principles, reactions, and mechanisms.",
+      "tags": ["organic chemistry", "chemistry", "textbook"]
+    },
+    {
+      "itemid": 4,
+      "name": "Physics for Scientists and Engineers",
+      "price": 89.99,
+      "description": "Physics textbook covering mechanics, thermodynamics, electricity, and magnetism.",
+      "tags": ["physics", "science", "textbook"]
+    },
+    {
+      "itemid": 5,
+      "name": "Linear Algebra and Its Applications",
+      "price": 69.99,
+      "description": "Textbook on linear algebra with applications in various fields.",
+      "tags": ["linear algebra", "mathematics", "textbook"]
+    },
+    {
+      "itemid": 6,
+      "name": "Fundamentals of Electric Circuits",
+      "price": 109.99,
+      "description": "Introduction to electric circuits and electronics.",
+      "tags": ["electric circuits", "electronics", "textbook"]
+    },
+    {
+      "itemid": 7,
+      "name": "Introduction to Probability and Statistics",
+      "price": 74.99,
+      "description": "Basic concepts of probability theory and statistical analysis.",
+      "tags": ["probability", "statistics", "textbook"]
+    },
+    {
+      "itemid": 8,
+      "name": "Molecular Biology of the Cell",
+      "price": 149.99,
+      "description": "Comprehensive overview of molecular biology concepts and cellular processes.",
+      "tags": ["molecular biology", "cell biology", "textbook"]
+    },
+    {
+      "itemid": 9,
+      "name": "Introduction to Algorithms",
+      "price": 99.99,
+      "description": "Study of algorithms and their design, analysis, and implementation.",
+      "tags": ["algorithms", "computer science", "textbook"]
+    },
+    {
+      "itemid": 10,
+      "name": "Engineering Mechanics: Dynamics",
+      "price": 84.99,
+      "description": "Textbook covering principles of dynamics and mechanical engineering.",
+      "tags": ["engineering mechanics", "dynamics", "textbook"]
+    },
+    {
+      "itemid": 11,
+      "name": "Genetics: Analysis and Principles",
+      "price": 119.99,
+      "description": "Introduction to genetics, including principles and molecular mechanisms.",
+      "tags": ["genetics", "biology", "textbook"]
+    },
+    {
+      "itemid": 12,
+      "name": "Introduction to Robotics",
+      "price": 79.99,
+      "description": "Overview of robotics principles, design, and applications.",
+      "tags": ["robotics", "engineering", "textbook"]
+    },
+    {
+      "itemid": 13,
+      "name": "Fundamentals of Fluid Mechanics",
+      "price": 94.99,
+      "description": "Study of fluid behavior and principles of fluid mechanics.",
+      "tags": ["fluid mechanics", "engineering", "textbook"]
+    },
+    {
+      "itemid": 14,
+      "name": "Biochemistry",
+      "price": 129.99,
+      "description": "Textbook covering biochemical principles, reactions, and pathways.",
+      "tags": ["biochemistry", "chemistry", "textbook"]
+    },
+    {
+      "itemid": 15,
+      "name": "Computer Networks: A Systems Approach",
+      "price": 109.99,
+      "description": "Overview of computer networking concepts, protocols, and technologies.",
+      "tags": ["computer networks", "networking", "textbook"]
+    },
+    {
+      "itemid": 16,
+      "name": "Statics and Mechanics of Materials",
+      "price": 94.99,
+      "description": "Textbook covering statics and mechanics of materials in engineering.",
+      "tags": ["statics", "mechanics", "textbook"]
+    },
+    {
+      "itemid": 17,
+      "name": "Environmental Science",
+      "price": 69.99,
+      "description": "Introduction to environmental science, including ecosystems and sustainability.",
+      "tags": ["environmental science", "science", "textbook"]
+    },
+    {
+      "itemid": 18,
+      "name": "Digital Signal Processing",
+      "price": 119.99,
+      "description": "Introduction to digital signal processing techniques and applications.",
+      "tags": ["signal processing", "electronics", "textbook"]
+    },
+    {
+      "itemid": 19,
+      "name": "Introduction to Biotechnology",
+      "price": 99.99,
+      "description": "Overview of biotechnology principles, techniques, and applications.",
+      "tags": ["biotechnology", "biology", "textbook"]
+    },
+    {
+      "itemid": 20,
+      "name": "Data Structures and Algorithms in Python",
+      "price": 84.99,
+      "description": "Study of data structures and algorithms using the Python programming language.",
+      "tags": ["data structures", "algorithms", "python", "textbook"]
+    }
+  ]
+  

@@ -3,41 +3,43 @@ import logo from './logo.svg';
 import './App.css';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+
+  // itemid -> name (string), price (number), description (string), tags(list)
+  const items = {
+    '1': {
+      'name': 'Used pencil',
+      'price': 1,
+      'description': 'Oldie but goodie.',
+      'tags': ['cheap']
+    }
+  };
+
+  const itemslist = Object.keys(items).map(item => {
+    return (
+      <div className='item-wrapper'>
+        <div>name: {items[item]['name']}</div>
+        <div>tags: {items[item]['tags']}</div>
+        <div>price: {items[item]['price']}</div>
+        <div>description: {items[item]['description']}</div>
+      </div>
+    )
+  });
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button onClick={() => setCount(count => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test hot module replacement (HMR).
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <div className="header">
+        <div className="logo-text">
+          CampusXChange
+        </div>
+      </div>
+      <div className="content">
+        <div className="items-wrapper">
+          {itemslist}
+        </div>
+      </div>
+      <div className="footer">
+
+      </div>
     </div>
   );
 };
