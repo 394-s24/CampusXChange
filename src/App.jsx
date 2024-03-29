@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import logo from './logo.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faSearch, faEnvelope, faStore, faFilter } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 
 const App = () => {
@@ -28,8 +30,14 @@ const App = () => {
   return (
     <div className="App">
       <div className="header">
+        <div className="menu-icon">
+          <FontAwesomeIcon icon={faBars} size="lg" />
+        </div>
         <div className="logo-text">
           CampusXChange
+        </div>
+        <div className="search-icon">
+          <FontAwesomeIcon icon={faSearch} size="lg" />
         </div>
       </div>
       <div className="content">
@@ -38,7 +46,13 @@ const App = () => {
         </div>
       </div>
       <div className="footer">
-
+        <footer>
+          <div className="footer-icons">
+            <a href="/messages"><FontAwesomeIcon icon={faEnvelope} /></a>
+            <a href="/marketplace"><FontAwesomeIcon icon={faStore} /></a>
+            <a href="/filter"><FontAwesomeIcon icon={faFilter} /></a>
+          </div>
+        </footer>
       </div>
     </div>
   );

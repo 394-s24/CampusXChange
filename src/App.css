@@ -3,10 +3,33 @@
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0; 
+  padding: 10px 20px; 
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  z-index: 1000;
+}
+
+.search-icon {
+  margin-right: 40px;
+}
+
+.content {
+  margin-top: 70px;
+  position: relative;
+}
+
+.menu-icon, .search-icon {
+  cursor: pointer;
+}
+
+.menu-icon:hover, .search-icon:hover {
+  color: #007bff; 
 }
 
 .logo-text {
@@ -27,4 +50,29 @@
 
   padding: 1rem;
   width: 20rem;
+}
+
+.footer {
+  background-color: lightgray;
+  padding: 1.5rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+  margin-right: 50px;
+}
+
+.footer-icons a {
+  margin: 0 10px;
+  color: white;
+}
+
+.footer-icons a svg {
+  font-size: 24px;
 }
