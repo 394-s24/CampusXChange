@@ -8,10 +8,18 @@ import data from './fakedata.json';
 const App = () => {
 
   const [filteredItems, setFilteredItems] = useState(data);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleFilter = (event) => {
     const filtered = data.filter(item => item.price <= 100);
-    setFilteredItems(filtered);
+    if (isChecked){
+      setFilteredItems(data);
+    }
+    else{
+      setFilteredItems(filtered);
+    }
+    setIsChecked(!isChecked)
+    
   }
 
   const itemslist = filteredItems.map(item => {
@@ -40,9 +48,9 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <button onClick={handleFilter}>
           under 100
-        </button>
+        <input onChange={handleFilter} type="checkbox" checked={isChecked}>
+        </input>
         <div className="items-wrapper">
           {itemslist}
         </div>
