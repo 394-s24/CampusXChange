@@ -10,11 +10,11 @@ const App = () => {
   const [filteredItems, setFilteredItems] = useState(data);
 
   const handleFilter = (event) => {
-    const filtered = data.filter(item => item.price >= 100);
+    const filtered = data.filter(item => item.price <= 100);
     setFilteredItems(filtered);
   }
 
-  const itemslist = data.map(item => {
+  const itemslist = filteredItems.map(item => {
     return (
       <div className='item-wrapper'>
         <div>itemid: {item.itemid}</div>
