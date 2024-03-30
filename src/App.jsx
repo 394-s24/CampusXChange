@@ -3,26 +3,25 @@ import logo from './logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
+import data from './fakedata.json';
 
 const App = () => {
 
-  // itemid -> name (string), price (number), description (string), tags(list)
-  const items = {
-    '1': {
-      'name': 'Used pencil',
-      'price': 1,
-      'description': 'Oldie but goodie.',
-      'tags': ['cheap']
-    }
-  };
+  const [filteredItems, setFilteredItems] = useState(data);
 
-  const itemslist = Object.keys(items).map(item => {
+  const handleFilter = (event) => {
+    const filtered = data.filter(item => item.price >= 100);
+    setFilteredItems(filtered);
+  }
+
+  const itemslist = data.map(item => {
     return (
       <div className='item-wrapper'>
-        <div>name: {items[item]['name']}</div>
-        <div>tags: {items[item]['tags']}</div>
-        <div>price: {items[item]['price']}</div>
-        <div>description: {items[item]['description']}</div>
+        <div>itemid: {item.itemid}</div>
+        <div>name: {item.name}</div>
+        <div>tags: {item.tags}</div>
+        <div>price: {item.price}</div>
+        <div>description: {item.description}</div>
       </div>
     )
   });
@@ -41,6 +40,9 @@ const App = () => {
         </div>
       </div>
       <div className="content">
+        <button onClick={handleFilter}>
+          under 100
+        </button>
         <div className="items-wrapper">
           {itemslist}
         </div>
