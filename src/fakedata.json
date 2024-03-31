@@ -138,6 +138,13 @@
       "price": 84.99,
       "description": "Study of data structures and algorithms using the Python programming language.",
       "tags": ["data structures", "algorithms", "python", "textbook"]
-    }
+    },
+    {
+        "itemid": 21,
+        "name": "Orange T-Shirt",
+        "price": 25.99,
+        "description": "Plain orange t-shirt for casual wear.",
+        "tags": ["clothes"]
+      }
   ]
   

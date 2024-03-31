@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faSearch, faEnvelope, faStore, faFilter } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faSearch, faEnvelope, faStore, faFilter, faLessThan } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import data from './fakedata.json';
 import PriceFilter from './components/PriceFilter';
+import TagFilter from './components/TagFilter';
 
 const App = () => {
 
@@ -12,11 +13,25 @@ const App = () => {
   const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
   const [activeTags, setActiveTags] = useState([]);
 
+  const filterprices = [10, 25, 50, 75, 100];
+
   useEffect(() => {
     // min might not be used for now, but I wanted to make this function more general
-    const filtered = data.filter(item => item.price <= activePriceFilter);
+    let filtered = data.filter(item => item.price <= activePriceFilter);
+
+    // filter by tags
+    // if no tags selected do not do anything
+    if (activeTags.length > 0) {
+      let temp = [];
+      activeTags.forEach(tag => {
+        temp = [...temp, ...filtered.filter(item => item.tags.includes(tag))];
+      });
+
+      filtered = temp;
+    }
+
     setFilteredItems(filtered);
-  }, [activePriceFilter])
+  }, [activePriceFilter, activeTags])
 
   const itemslist = filteredItems.map(item => {
     return (
@@ -44,13 +59,15 @@ const App = () => {
         </div>
       </div>
       <div className="content">
+        <div className="filters-wrapper">
+          <div id="tag-filters" className="filter-group">
+            <TagFilter text="clothes" value="clothes" activeTags={activeTags} setActiveTags={setActiveTags} />
+            <TagFilter text="textbook" value="textbook" activeTags={activeTags} setActiveTags={setActiveTags} />
+          </div>
 
-        <div id="price-filters" className="filter-group">
-          <PriceFilter text="under 10" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={10} />
-          <PriceFilter text="under 25" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={25} />
-          <PriceFilter text="under 50" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={50} />
-          <PriceFilter text="under 75" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={75} />
-          <PriceFilter text="under 100" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={100} />
+          <div id="price-filters" className="filter-group">
+            {filterprices.map(price => <PriceFilter text={`under ${price}`} activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={price} />)}
+          </div>
         </div>
 
         <div className="items-wrapper">
