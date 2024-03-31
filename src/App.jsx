@@ -12,6 +12,7 @@ const App = () => {
   const [filteredItems, setFilteredItems] = useState(data);
   const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
   const [activeTags, setActiveTags] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   const filterprices = [10, 25, 50, 75, 100];
 
@@ -30,8 +31,13 @@ const App = () => {
       filtered = temp;
     }
 
+
+    if (searchValue.length > 0) {
+      filtered = filtered.filter(item => item.name.includes(searchValue))
+    }
+
     setFilteredItems(filtered);
-  }, [activePriceFilter, activeTags])
+  }, [searchValue, activePriceFilter, activeTags])
 
   const itemslist = filteredItems.map(item => {
     return (
@@ -44,6 +50,18 @@ const App = () => {
       </div>
     )
   });
+
+
+  const handleSearch = () => {
+    setSearchValue(searchValue);
+    if (searchValue.length >= 1) {
+
+
+      setActiveTags(activeTags.filter(tag => tag !== value));
+      } else {
+        setActiveTags([...activeTags, value]);
+      }
+  }
 
   return (
     <div className="App">
@@ -69,7 +87,9 @@ const App = () => {
             {filterprices.map(price => <PriceFilter text={`under ${price}`} activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={price} />)}
           </div>
         </div>
-
+        <div className="search-bar">
+          <input name="" onChange={(event) => setSearchValue(event.target.value)}/>
+        </div>
         <div className="items-wrapper">
           {itemslist}
         </div>
