@@ -4,22 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import data from './fakedata.json';
+import PriceFilter from './components/PriceFilter';
 
 const App = () => {
 
   const [filteredItems, setFilteredItems] = useState(data);
-  const [isChecked, setIsChecked] = useState(false);
 
-  const handleFilter = (event) => {
-    const filtered = data.filter(item => item.price <= 100);
-    if (isChecked){
-      setFilteredItems(data);
-    }
-    else{
-      setFilteredItems(filtered);
-    }
-    setIsChecked(!isChecked)
-    
+  const handleFilter = (min, max) => {
+    // min might not be used for now, but I wanted to make this function more general
+    const filtered = data.filter(item => item.price <= max && item.price >= min);
+    setFilteredItems(filtered);
+
   }
 
   const itemslist = filteredItems.map(item => {
@@ -48,9 +43,9 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-          under 100
-        <input onChange={handleFilter} type="checkbox" checked={isChecked}>
-        </input>
+
+        <PriceFilter text="under 100" handleFilter={handleFilter} min={0} max={100} />
+
         <div className="items-wrapper">
           {itemslist}
         </div>
