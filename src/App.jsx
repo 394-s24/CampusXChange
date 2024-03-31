@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter } from '@fortawesome/free-solid-svg-icons';
@@ -9,13 +9,14 @@ import PriceFilter from './components/PriceFilter';
 const App = () => {
 
   const [filteredItems, setFilteredItems] = useState(data);
+  const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
+  const [activeTags, setActiveTags] = useState([]);
 
-  const handleFilter = (min, max) => {
+  useEffect(() => {
     // min might not be used for now, but I wanted to make this function more general
-    const filtered = data.filter(item => item.price <= max && item.price >= min);
+    const filtered = data.filter(item => item.price <= activePriceFilter);
     setFilteredItems(filtered);
-
-  }
+  }, [activePriceFilter])
 
   const itemslist = filteredItems.map(item => {
     return (
@@ -44,7 +45,13 @@ const App = () => {
       </div>
       <div className="content">
 
-        <PriceFilter text="under 100" handleFilter={handleFilter} min={0} max={100} />
+        <div id="price-filters" className="filter-group">
+          <PriceFilter text="under 10" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={10} />
+          <PriceFilter text="under 25" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={25} />
+          <PriceFilter text="under 50" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={50} />
+          <PriceFilter text="under 75" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={75} />
+          <PriceFilter text="under 100" activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={100} />
+        </div>
 
         <div className="items-wrapper">
           {itemslist}
