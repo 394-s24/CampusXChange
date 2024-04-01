@@ -15,16 +15,17 @@
   z-index: 1000;
 }
 
-.search-icon {
+.filter-icon {
   margin-right: 40px;
 }
 
 .content {
-  margin-top: 70px;
   position: relative;
+  margin-top: 60px;
+  margin-bottom: 80px;
 }
 
-.menu-icon, .search-icon {
+.menu-icon, .search-icon, .filter-icon {
   cursor: pointer;
 }
 
@@ -35,6 +36,40 @@
 .logo-text {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.listings {
+  font-weight: bold;
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 40px;
+  margin-top: 80px;
+  margin-right: 40px;
+}
+
+.filters-wrapper {
+  position: absolute;
+  top: 10px; 
+  right: 20px; 
+  background-color: #ffffff; 
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  padding: 10px; 
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  font-family: 'Arial', sans-serif;
+}
+
+.filter-group {
+  margin-bottom: 10px;
+}
+
+.filter-group b {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.search-bar {
+  margin-bottom: 20px;
 }
 
 .items-wrapper {
@@ -51,6 +86,8 @@
   padding: 1rem;
   margin: 1rem;
   width: 20rem;
+
+  text-align: left;
 }
 
 .footer {

@@ -145,6 +145,13 @@
         "price": 25.99,
         "description": "Plain orange t-shirt for casual wear.",
         "tags": ["clothes"]
-      }
+    },
+    {
+        "itemid": 22,
+        "name": "Blue Sundress",
+        "price": 22.99,
+        "description": "Puff-sleeved blue minidress for the summer.",
+        "tags": ["clothes"]
+    }
   ]
   
