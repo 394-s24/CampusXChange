@@ -15,22 +15,24 @@
   z-index: 1000;
 }
 
-.filter-icon {
-  margin-right: 40px;
-}
-
 .content {
   position: relative;
   margin-top: 60px;
   margin-bottom: 80px;
+  font-family: 'Arial', sans-serif;
 }
 
-.menu-icon, .search-icon, .filter-icon {
+.menu-icon, .filter-icon {
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.menu-icon:hover, .search-icon:hover {
-  color: #007bff; 
+.filter-icon {
+  margin-right: 40px;
+}
+
+.menu-icon:hover, .filter-icon:hover {
+  color: lightgrey; 
 }
 
 .logo-text {
@@ -82,12 +84,21 @@
 .item-wrapper {
   background-color: lightgrey;
   border-radius: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   padding: 1rem;
   margin: 1rem;
   width: 20rem;
 
   text-align: left;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.item-wrapper:hover {
+  background-color: darkgrey;
+  color: white; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .footer {
