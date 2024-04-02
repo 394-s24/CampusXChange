@@ -6,6 +6,7 @@ import './App.css';
 import data from './fakedata.json';
 import PriceFilter from './components/PriceFilter';
 import TagFilter from './components/TagFilter';
+import ListingItem from './components/ListingItem';
 
 const App = () => {
 
@@ -40,15 +41,7 @@ const App = () => {
   }, [searchValue, activePriceFilter, activeTags])
 
   const itemslist = filteredItems.map(item => {
-    return (
-      <div className='item-wrapper'>
-        <div><b>id: </b>{item.itemid}</div>
-        <div><b>name: </b>{item.name}</div>
-        <div><b>tags: </b>{item.tags.map(tag => <span key={tag}>{tag}, </span>)}</div>
-        <div><b>price: </b>{item.price}</div>
-        <div><b>description: </b>{item.description}</div>
-      </div>
-    )
+    return <ListingItem item={item} />
   });
 
   const handleToggleFilters = () => {
@@ -69,9 +62,6 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <div className="listings">
-          <text>Listings</text>
-        </div>
         {showFilters && (
           <div className="filters-wrapper">
             <div id="tag-filters" className="filter-group">
@@ -84,13 +74,36 @@ const App = () => {
               <b>price</b>
               {filterprices.map(price => <PriceFilter text={`under $${price}`} activeFilter={activePriceFilter} setFilter={setActivePriceFilter} min={0} max={price} />)}
             </div>
-
-            <div className="search-bar">
-              <i>search name: </i>
-              <input name="" onChange={(event) => setSearchValue(event.target.value)}/>
-            </div>
           </div>
         )}
+
+        <div className="search-bar-wrapper">
+          <div className="search-bar">
+            <input className="search-input"
+              name=""
+              onChange={(event) => setSearchValue(event.target.value)}
+              placeholder="Search for an item"
+            />
+          </div>
+        </div>
+
+        <div className="active-tags-wrapper" style={{"display": activeTags.length > 0 ? "": "none"}}>
+          Tag Filters:
+          <div className="active-tags">
+            {activeTags.map(activeTag =>
+              <div className="active-tag">
+                {activeTag}
+                <div 
+                  className="cancel-tag"
+                  onClick={() => setActiveTags(activeTags.filter(tag => tag !== activeTag))}
+                >
+                    x
+                </div>  
+              </div>
+            )}
+          </div>
+        </div>
+
         <div className="items-wrapper">
           {itemslist}
         </div>

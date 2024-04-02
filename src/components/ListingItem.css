@@ -1,0 +1,42 @@
+.item-wrapper {
+    position: relative;
+    background-color: white;
+    border-radius: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+    margin: 1rem;
+    width: 20rem;
+    height: 25rem;
+
+    text-align: left;
+    transition: color 0.3s ease;
+    cursor: pointer;
+
+    overflow: hidden;
+}
+
+.item-image-wrapper {
+    background-color: lightgrey;
+    height: 10rem;
+    overflow: hidden;
+}
+
+.item-image {
+    width: 100%;
+}
+
+.item-info-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}
+
+.item-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.item-price {
+    font-size: 1.2rem;
+}
