@@ -7,6 +7,7 @@ import data from './fakedata.json';
 import PriceFilter from './components/PriceFilter';
 import TagFilter from './components/TagFilter';
 import ListingItem from './components/ListingItem';
+import ItemDetails from './components/ItemDetails';
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
   const [activeTags, setActiveTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const [selectedItem, setSelectedItem] = useState("")
 
   const filterprices = [10, 25, 50, 75, 100];
 
@@ -41,7 +43,7 @@ const App = () => {
   }, [searchValue, activePriceFilter, activeTags])
 
   const itemslist = filteredItems.map(item => {
-    return <ListingItem item={item} />
+    return <ListingItem item={item} handleSelect={setSelectedItem} />
   });
 
   const handleToggleFilters = () => {
@@ -62,6 +64,10 @@ const App = () => {
         </div>
       </div>
       <div className="content">
+        {selectedItem && (
+          <ItemDetails item={selectedItem} />
+        )}
+
         {showFilters && (
           <div className="filters-wrapper">
             <div id="tag-filters" className="filter-group">
@@ -87,28 +93,33 @@ const App = () => {
           </div>
         </div>
 
-        <div className="active-tags-wrapper" style={{"display": activeTags.length > 0 ? "": "none"}}>
+        <div className="active-tags-wrapper" style={{ "display": activeTags.length > 0 ? "" : "none" }}>
           Tag Filters:
           <div className="active-tags">
             {activeTags.map(activeTag =>
               <div className="active-tag">
                 {activeTag}
-                <div 
+                <div
                   className="cancel-tag"
                   onClick={() => setActiveTags(activeTags.filter(tag => tag !== activeTag))}
                 >
-                    x
-                </div>  
+                  x
+                </div>
               </div>
             )}
           </div>
         </div>
 
-        <div className="items-wrapper">
+        <div className="items-wrapper"
+          onClick={() => {
+            if (selectedItem) {setSelectedItem("")}
+          }}
+        >
           {itemslist}
         </div>
       </div>
-      <div className="footer">
+
+      {/* <div className="footer">
         <footer>
           <div className="footer-icons">
             <a href="/messages"><FontAwesomeIcon icon={faEnvelope} /></a>
@@ -116,7 +127,8 @@ const App = () => {
             <a href="/user"><FontAwesomeIcon icon={faUser} /></a>
           </div>
         </footer>
-      </div>
+      </div> */}
+
     </div>
   );
 };

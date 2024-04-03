@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import "./ListingItem.css";
 import defaultImage from "../resources/images/image.png";
 
-export default function ListingItem({ item }) {
+export default function ListingItem({ item, handleSelect }) {
+
     return (
         <>
-            <div className='item-wrapper'>
+            <div className='item-wrapper' onClick={() => handleSelect(item)}>
                 <div className="item-image-wrapper">
                     <img className="item-image" src={defaultImage}/>
                 </div>
