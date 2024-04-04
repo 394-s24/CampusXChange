@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-import data from './fakedata.json';
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
 import PriceFilter from './components/PriceFilter';
 import TagFilter from './components/TagFilter';
 import ListingItem from './components/ListingItem';
@@ -11,16 +12,33 @@ import ItemDetails from './components/ItemDetails';
 
 const App = () => {
 
-  const [filteredItems, setFilteredItems] = useState(data);
   const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
   const [activeTags, setActiveTags] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [selectedItem, setSelectedItem] = useState("")
+  const [data, setData] = useState([]);
+  const [filteredItems, setFilteredItems] = useState(data);
 
   const filterprices = [10, 25, 50, 75, 100];
 
+  const firebaseConfig = {
+    databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
+  };
+  
+  // initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  // initialize Realtime Database and get a reference to the service
+  const database = getDatabase(app);  
+
   useEffect(() => {
+    // retrieve data from firebase realtime db
+    const itemCountRef = ref(database, '/');
+onValue(itemCountRef, (snapshot) => {
+      setData(snapshot.val());
+    });
+
     // min might not be used for now, but I wanted to make this function more general
     let filtered = data.filter(item => item.price <= activePriceFilter);
 
@@ -40,7 +58,7 @@ const App = () => {
     }
 
     setFilteredItems(filtered);
-  }, [searchValue, activePriceFilter, activeTags])
+  }, [searchValue, activePriceFilter, activeTags, data])
 
   const itemslist = filteredItems.map(item => {
     return <ListingItem item={item} handleSelect={setSelectedItem} />
