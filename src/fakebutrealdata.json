@@ -1,14 +1,14 @@
 [
     {
-      "Name" : "Understanding Humans: An Introduction to Physical Anthropology and Archaeology",
-      "Username":"ericlee878",
-      "Description" : "UNDERSTANDING HUMANS: INTRODUCTION TO PHYSICAL ANTHROPOLOGY AND ARCHAEOLOGY shows students how anthropologists and archaeologists go about their work as they study human evolution, living nonhuman primates, human adaptation and variation, the origin and dispersal of modern humans, food production, the first civilizations of the Old and New Worlds, and so much more. Using a biocultural approach, the text balances the presentation of physical anthropology with archaeology and concludes with a new chapter that ties together the material on human biological and cultural adaptation by focusing on lessons learned from our species evolution such as the impact of humans on the environment. Students will also benefit from the new chapter opening learning objectives, "At a Glance" sections that summarize key concepts, and end-of-chapter "Critical Thinking Questions" that help students better understand the material and study more effectively for exams.",
-      "Price" : 173.95,
-      "Condition": "New",
-      "Class" : "ANTRHO 213",
-      "Authors" : ["Barry Lewis", "Robert Jurmain", "Lynn Kilgore"],
-      "Edition" : 11,
-      "Tags": ["anthropology", "ANTHRO 213"]
+        "Name" : "Understanding Humans: An Introduction to Physical Anthropology and Archaeology",
+        "Username":"ericlee878",
+        "Description" : "UNDERSTANDING HUMANS: INTRODUCTION TO PHYSICAL ANTHROPOLOGY AND ARCHAEOLOGY shows students how anthropologists and archaeologists go about their work as they study human evolution, living nonhuman primates, human adaptation and variation, the origin and dispersal of modern humans, food production, the first civilizations of the Old and New Worlds, and so much more. Using a biocultural approach, the text balances the presentation of physical anthropology with archaeology and concludes with a new chapter that ties together the material on human biological and cultural adaptation by focusing on lessons learned from our species evolution such as the impact of humans on the environment. Students will also benefit from the new chapter opening learning objectives, "At a Glance" sections that summarize key concepts, and end-of-chapter "Critical Thinking Questions" that help students better understand the material and study more effectively for exams.",
+        "Price" : 173.95,
+        "Condition": "New",
+        "Class" : "ANTRHO 213",
+        "Authors" : ["Barry Lewis", "Robert Jurmain", "Lynn Kilgore"],
+        "Edition" : 11,
+        "Tags": ["anthropology", "ANTHRO 213"]
       },
       {
         "Name": "The Search for Life in the Universe",
@@ -54,7 +54,134 @@
         "Edition": 5,
         "Tags": ["ea", "EA 1"]
       }
-      
-      
+      {
+        "Name": "New Ideas from Dead Economists: An Introduction to Modern Economic Thought",
+        "Username": "ericlee878",
+        "Description": "Through the teachings of Adam Smith, John Stuart Mill, Karl Marx, John Maynard Keynes, and more, renowned economist Todd Buchholz shows how these age-old ideas still apply to our modern world. In this revised edition, Buchholz offers an insightful and informed perspective on key economic issues in the new millennium: increasing demand for energy, the rise of China, international trade, aging populations, health care, and the effects of global warming. New Ideas from Dead Economists is a fascinating guide to understanding both the evolution of economic theory and our complex contemporary economy.",
+        "Price": 17.71,
+        "Condition": "New",
+        "Class": "ECON 201",
+        "Authors": ["Todd G. Buchholz", "Martin Feldstein"],
+        "Edition": 1,
+        "Tags": ["economics", "ECON 201"]
+      },
+      {
+        "Name": "Microeconomics",
+        "Username": "rachelya0",
+        "Description": "Microeconomics is a classroom-tested resource for learning the key concepts, essential tools, and applications of microeconomics. This leading textbook enables students to recognize and analyze significant data, patterns, and trends in real markets through its integrated, student-friendly approach to the subject ― providing practice problems, hands-on exercises, illustrative examples, and engaging applications that ground theory firmly in the real world. Each chapter, opening with a set of clearly defined learning goals based on the Bloom Taxonomy, features numerous Learning-by-Doing (LBD) problems, mathematical and graphical data, and varied problem sets focused on current events.",
+        "Price": 179.87,
+        "Condition": "Used",
+        "Class": "ECON 310",
+        "Authors": ["David Besanko", "Ronald Braeutigam"],
+        "Edition": 6,
+        "Tags": ["economics", "ECON 301"]
+      },
+      {
+        "Name": "Essential Calculus: Early Transcendentals - Standalone Book",
+        "Username": "hongzhounu",
+        "Description": "This book is for instructors who think that most calculus textbooks are too long. In writing the book, James Stewart asked himself: What is essential for a three-semester calculus course for scientists and engineers? ESSENTIAL CALCULUS: EARLY TRANSCENDENTALS, Second Edition, offers a concise approach to teaching calculus that focuses on major concepts, and supports those concepts with precise definitions, patient explanations, and carefully graded problems. The book is only 900 pages--two-thirds the size of Stewart's other calculus texts, and yet it contains almost all of the same topics. The author achieved this relative brevity primarily by condensing the exposition and by putting some of the features on the book's website, www.StewartCalculus.com. Despite the more compact size, the book has a modern flavor, covering technology and incorporating material to promote conceptual understanding, though not as prominently as in Stewart's other books. ESSENTIAL CALCULUS: EARLY TRANSCENDENTALS features the same attention to detail, eye for innovation, and meticulous accuracy that have made Stewart's textbooks the best-selling calculus texts in the world.",
+        "Price": 24.73,
+        "Condition": "Used",
+        "Class": "MATH 230",
+        "Authors": ["James Stewart"],
+        "Edition": 2,
+        "Tags": ["math", "MATH 230"]
+      },
+      {
+        "Name": "The Ethical Life: Fundamental Readings in Ethics and Moral Problems",
+        "Username": "kimjoel3",
+        "Description": "Brief yet thorough and affordably priced, The Ethical Life: Fundamental Readings in Ethics and Moral Problems, Fifth Edition, is ideal for courses in introductory ethics and contemporary moral problems. Featuring forty-two readings divided into four parts, it introduces students to ethical theory and a wide range of moral issues. The essays include selections from such historically influential philosophers as Aristotle, Hume, Kant, and Mill alongside work by contemporary philosophers like Philippa Foot, Robert Nozick, Peter Singer, and Judith Jarvis Thomson. Detailed reading introductions provide helpful contextual information.",
+        "Price": 69.49,
+        "Condition": "New",
+        "Class": "PHIL 260",
+        "Authors": ["Russ Shafer-Landau"],
+        "Edition": 5,
+        "Tags": ["philosophy", "PHIL 260"]
+      },
+      {
+        "Name": "Understanding Political Science Research Methods: The Challenge of Inference",
+        "Username": "carolliu2024",
+        "Description": "This text starts by explaining the fundamental goal of good political science research the ability to answer interesting and important questions by generating valid inferences about political phenomena. Before the text even discusses the process of developing a research question, the authors introduce the reader to what it means to make an inference and the different challenges that social scientists face when confronting this task. Only with this ultimate goal in mind will students be able to ask appropriate questions, conduct fruitful literature reviews, select and execute the proper research design, and critically evaluate the work of others.The authors' primary goal is to teach students to critically evaluate their own research designs and others and analyze the extent to which they overcome the classic challenges to making internal and external validity concerns, omitted variable bias, endogeneity, measurement, sampling, and case selection errors, and poor research questions or theory. As such, students will not only be better able to conduct political science research, but they will also be more savvy consumers of the constant flow of causal assertions that they confront in scholarship, in the media, and in conversations with others.Three themes run through Barakso, Sabet, and Schaffner s minimizing classic research problems to making valid inferences, effective presentation of research results, and the nonlinear nature of the research process. Throughout their academic years and later in their professional careers, students will need to effectively convey various bits of information. Presentation skills gleaned from this text will benefit students for a lifetime, whether they continue in academia or in a professional career.Several distinctive features make this book common set of examples threaded throughout the text give students a common ground across chapters and expose them to a broad range of subfields in the discipline."When Things Go Wrong" boxes illustrate the nonlinear, "non-textbook" reality of research"Inferences in the Media" boxes demonstrate the often false inferences and poor social science in the way the popular press covers politics;"Ethics of Conduct" boxes encourage students to think about ethical issues at various stages of the research process.Robust end-of-chapter exercisesA companion website that gives students additional opportunities to fine tune their understanding of the book s material",
+        "Price": 74.68,
+        "Condition": "New",
+        "Class": "POLI_SCI 210",
+        "Authors": ["Daniel M. Sabet", "Maryann Barakso", "Brian Schaffner"],
+        "Edition": 1,
+        "Tags": ["political science", "POLI_SCI 210"]
+      },
+      {
+        "Name": "Psychological Science",
+        "Username": "ericlee878",
+        "Description": "Drawing on teaching and learning research, the Sixth Edition provides new tools to improve students’ reading, focus, and self-assessment. Chapters are now divided into brief “study units,” each of which concludes with a self-test question to increase comprehension. NEW “Putting Psychology to Work” features show students how to apply psychology concepts to future careers. Our formative, adaptive learning tool, InQuizitive, and our online psychology labs, ZAPS 2.0, provide a hands-on approach to assessing students’ understanding.",
+        "Price": 23.00,
+        "Condition": "Used",
+        "Class": "PSYCH 110",
+        "Authors": ["Michael Gazzaniga"],
+        "Edition": 6,
+        "Tags": ["psychology", "PSYCH 110"]
+      },
+      {
+        "Name": "An Introduction to Buddhism: Teachings, History and Practices (Introduction to Religion)",
+        "Username": "rachelya0",
+        "Description": "In this new edition of the best-selling Introduction to Buddhism, Peter Harvey provides a comprehensive introduction to the development of the Buddhist tradition in both Asia and the West. Extensively revised and fully updated, this new edition draws on recent scholarship in the field, exploring the tensions and continuities between the different forms of Buddhism. Harvey critiques and corrects some common misconceptions and mistranslations, and discusses key concepts that have often been over-simplified and over-generalised. The volume includes detailed references to scriptures and secondary literature, an updated bibliography, and a section on web resources. Key terms are given in Pali and Sanskrit, and Tibetan words are transliterated in the most easily pronounceable form, making this is a truly accessible account. This is an ideal coursebook for students of religion, Asian philosophy and Asian studies, and is also a useful reference for readers wanting an overview of Buddhism and its beliefs.",
+        "Price": 39.99,
+        "Condition": "New",
+        "Class": "RELIGION 210",
+        "Authors": ["Peter Harvey"],
+        "Edition": 2,
+        "Tags": ["religion", "RELIGION 210"]
+      },
+      {
+        "Name": "Writing Short Films: Structure and Content for Screenwriters",
+        "Username": "hongzhounu",
+        "Description": "Writing Short Films is one of the bestselling university text books on writing short film screenplays. This updated and revised edition includes several new chapters.",
+        "Price": 11.99,
+        "Condition": "New",
+        "Class": "RTVF 260",
+        "Authors": ["Linda J. Cowgill"],
+        "Edition": 2,
+        "Tags": ["rtvf", "RTVF 260"]
+      },
+      {
+        "Name": "American Psychosis: How the Federal Government Destroyed the Mental Illness Treatment System",
+        "Username": "kimjoel3",
+        "Description": "In 1963, President John F. Kennedy delivered an historic speech on mental illness and retardation. He described sweeping new programs to replace "the shabby treatment of the many millions of the mentally disabled in custodial institutions" with treatment in community mental health centers. This movement, later referred to as deinstitutionalization, continues to impact mental health care. Though he never publicly acknowledged it, the program was a tribute to Kennedy's sister Rosemary, who was born mildly retarded and developed a schizophrenia-like illness. Terrified she'd become pregnant, Joseph Kennedy arranged for his daughter to receive a lobotomy, which was a disaster and left her severely retarded.",
+        "Price": 42.59,
+        "Condition": "New",
+        "Class": "SOC_POL 304",
+        "Authors": ["E. Fuller Torrey"],
+        "Edition": 1,
+        "Tags": ["social_policy", "SOC_POL 304"]
+      },
+      {
+        "Name" : "Northwestern Wildcats Men's Under Armour Tech 2.0 Long-Sleeve Wildcats T-Shirt",
+        "Username": "carolliu2024",
+        "Description" : "Go U! Find premium Northwestern University apparel from the Official Team Store of Northwestern Athletics. Check out our Northwestern Wildcats Men's Under Armour Tech 2.0 Long-Sleeve Wildcats T-Shirt and add it to your Wildcat wardrobe. This long-sleeve t-shirt features the Northwestern N and Northwestern in purple with Wildcats in white below it. Shop this product and more NU apparel online today!",
+        "Price" : 47.99,
+        "Condition": "New",
+        "Size": "S",
+        "Color": "Black",
+        "Tags" : ["long-sleeve shirt", "northwestern merch", "under armour"]
+      },
+      {
+        "Name" : "Northwestern Wildcats Black N-Cat Tie",
+        "Username": "ericlee878",
+        "Description" : "Hail to the Purple! This Northwestern tie is a great way to show your Wildcat spirit! This tie features a black body with purple and white N-Cat logos that is great for any occasion. Make sure to pick up this Northwestern Wildcats Black N-Cat Tie to show off at games! Shop the Official Team Store of Northwestern Athletics for Northwestern apparel or gifts! This is an officially licensed collegiate product. ",
+        "Price" : 27.99,
+        "Condition": "New",
+        "Size": "One Size",
+        "Color": "Black",
+        "Tags" : ["neck-tie", "northwestern merch", "cats"]
+      },
+      {
+        "Name" : "Northwestern Wildcats Men's Tommy Bahama Tobago Bay Half-Zip",
+        "Username": "rachelya0",
+        "Description" : "Go Wildcats! Get this Northwestern Wildcats Men's Tommy Bahama Tobago Bay Half-Zip and everyone will be able to see your Northwestern pride! When you wear this Tommy Bahama half-zip to the next game, you will stand out in the crowd! This half-zip pullover features a black body with accentuated white stitching and a purple N logo on the left chest. Get one today to show your Wildcat spirit! Shop the Official Team Store of Northwestern Athletics for Northwestern apparel or gifts! This is an officially licensed collegiate product.",
+        "Price" : 138.00,
+        "Condition": "New",
+        "Size": "L",
+        "Color": "Black",
+        "Tags" : ["half-zip", "northwestern merch", "Tommy Bahama Tobago Bay"]
+      }
   ]
   
