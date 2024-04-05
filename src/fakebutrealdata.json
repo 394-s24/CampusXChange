@@ -1,0 +1,60 @@
+[
+    {
+      "Name" : "Understanding Humans: An Introduction to Physical Anthropology and Archaeology",
+      "Username":"ericlee878",
+      "Description" : "UNDERSTANDING HUMANS: INTRODUCTION TO PHYSICAL ANTHROPOLOGY AND ARCHAEOLOGY shows students how anthropologists and archaeologists go about their work as they study human evolution, living nonhuman primates, human adaptation and variation, the origin and dispersal of modern humans, food production, the first civilizations of the Old and New Worlds, and so much more. Using a biocultural approach, the text balances the presentation of physical anthropology with archaeology and concludes with a new chapter that ties together the material on human biological and cultural adaptation by focusing on lessons learned from our species evolution such as the impact of humans on the environment. Students will also benefit from the new chapter opening learning objectives, "At a Glance" sections that summarize key concepts, and end-of-chapter "Critical Thinking Questions" that help students better understand the material and study more effectively for exams.",
+      "Price" : 173.95,
+      "Condition": "New",
+      "Class" : "ANTRHO 213",
+      "Authors" : ["Barry Lewis", "Robert Jurmain", "Lynn Kilgore"],
+      "Edition" : 11,
+      "Tags": ["anthropology", "ANTHRO 213"]
+      },
+      {
+        "Name": "The Search for Life in the Universe",
+        "Username": "rachelya0",
+        "Description": "This textbook explores the fascinating quest for life beyond Earth through the fields of astronomy, biology, and planetary science. Covering topics from the origins of life on Earth to the possibilities of extraterrestrial life, the book delves into the scientific methods and technologies used in the search for life in the cosmos. It discusses the latest discoveries and theories related to habitable zones, exoplanets, and the potential for life in our solar system and beyond.",
+        "Price": 60.14,
+        "Condition": "New",
+        "Class": "ASTRO 110",
+        "Authors": ["Donald Goldsmith", "Tobias Owen"],
+        "Edition": 3,
+        "Tags": ["astronomy", "ASTRO 110"]
+      },
+      {
+        "Name": "Human Physiology: An Integrated Approach",
+        "Username": "hongzhounu",
+        "Description": "Human Physiology: An Integrated Approach is the #1 best-selling 1-semester human physiology text world-wide. The 8th Edition engages students in developing a deeper understanding of human physiology by guiding them to think critically and equipping them to solve real-world problems. Updates, such as new Try It activities and detailed teaching suggestions in the new Ready-to-Go Teaching Modules, help students learn and apply mapping skills, graphing skills, and data interpretation skills.",
+        "Price": 120.94,
+        "Condition": "Used",
+        "Class": "BIO 217",
+        "Authors": ["Dee Silverthorn"],
+        "Edition": 8,
+        "Tags": ["biology", "BIO 217"]
+      },
+      {
+        "Name": "General Chemistry: Principles and Modern Applications",
+        "Username": "kimjoel3",
+        "Description": "General Chemistry: Principles and Modern Applications, is the most trusted book on the market recognized for its superior problems, lucid writing, and precision of argument and precise and detailed and treatment of the subject. The 11th edition offers enhanced hallmark features, new innovations and revised discussions that that respond to key market needs for detailed and modern treatment of organic chemistry, embracing the power of visual learning and conquering the challenges of effective problem solving and assessment.",
+        "Price": 88.51,
+        "Condition": "Used",
+        "Class": "CHEM 171",
+        "Authors": ["Ralph Petrucci", "F. Herring"],
+        "Edition": 11,
+        "Tags": ["chemistry", "CHEM 171"]
+      },
+      {
+        "Name": "Linear Algebra and Its Applications",
+        "Username": "carolliu2024",
+        "Description": "This textbook is widely acclaimed for its clear and concise handling of the principles and applications of linear algebra. Aimed at undergraduate students, it provides a thorough exploration of linear equations, matrices, vector spaces, determinants, eigenvalues, and eigenvectors, along with a variety of applications that demonstrate how linear algebra is used across different fields. The book emphasizes both the theoretical framework and practical applications, making it a valuable resource for students in mathematics, engineering, and the sciences. Through its well-structured content, it helps readers develop an intuitive understanding of linear algebra's role in problem-solving and theoretical reasoning.",
+        "Price": 202.65,
+        "Condition": "New",
+        "Class": "EA 1",
+        "Authors": ["David Lay", "Steven Lay", "Judi McDonald"],
+        "Edition": 5,
+        "Tags": ["ea", "EA 1"]
+      }
+      
+      
+  ]
+  
