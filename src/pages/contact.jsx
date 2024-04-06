@@ -6,6 +6,10 @@ import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortaw
 /* Firebase */
 import { onValue } from "firebase/database";
 
-export default function Messages({textbookCountRef}) {
-    return
+export default function Contact({ textbookCountRef }) {
+    return (
+        <div className="contact-wrapper">
+            <div>Hong Zhou</div>
+        </div>
+    )
 }

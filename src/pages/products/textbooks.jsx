@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortawesome/free-solid-svg-icons';
 
 /* Firebase */
-import { onValue } from "firebase/database";
+import { DataSnapshot, onValue } from "firebase/database";
 
 /* Components */
 import PriceFilter from '../../components/PriceFilter';
@@ -31,21 +31,21 @@ export default function TextBooks({ textbookCountRef }) {
         });
 
         // min might not be used for now, but I wanted to make this function more general
-        let filtered = data.filter(item => item.price <= activePriceFilter);
+        let filtered = data.filter(item => item.Price <= activePriceFilter);
 
         // filter by tags
         // if no tags selected do not do anything
         if (activeTags.length > 0) {
             let temp = [];
             activeTags.forEach(tag => {
-                temp = [...temp, ...filtered.filter(item => item.tags.includes(tag))];
+                temp = [...temp, ...filtered.filter(item => item.Tags.includes(tag))];
             });
 
             filtered = temp;
         }
         if (searchValue.length > 0) {
             // non case-sensitive
-            filtered = filtered.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+            filtered = filtered.filter(item => item.Name.toLowerCase().includes(searchValue.toLowerCase()))
         }
 
         setFilteredItems(filtered);

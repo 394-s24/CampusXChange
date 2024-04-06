@@ -11,7 +11,7 @@ import { getDatabase, ref } from "firebase/database";
 
 /* Pages */
 import Layout from "./pages/layout";
-import Messages from "./pages/messages";
+import Contact from "./pages/contact";
 import TextBooks from "./pages/products/textbooks";
 
 const App = () => {
@@ -26,13 +26,13 @@ const App = () => {
 
   // initialize Realtime Database and get a reference to the service
   const database = getDatabase(app);
-  const textbookCountRef = ref(database, '/');
+  const textbookCountRef = ref(database, '/textbooks');
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout content={<TextBooks textbookCountRef={textbookCountRef} />}/>} />
-        <Route path="/messages" element={<Layout content={<Messages />}/>} />
+        <Route path="/contact" element={<Layout content={<Contact />}/>} />
       </Routes>
     </BrowserRouter>
   );
