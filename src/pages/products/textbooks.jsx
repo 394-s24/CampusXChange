@@ -62,15 +62,18 @@ export default function TextBooks({ textbookCountRef }) {
     return (
         <div className="content">
             {selectedItem && (
-                <ItemDetails item={selectedItem} />
+                <ItemDetails item={selectedItem} toggleDetails={setSelectedItem}/>
             )}
 
             {showFilters && (
                 <div className="filters-wrapper">
                     <div id="tag-filters" className="filter-group">
                         <b>category</b>
-                        <TagFilter text="clothes" value="clothes" activeTags={activeTags} setActiveTags={setActiveTags} />
-                        <TagFilter text="textbook" value="textbook" activeTags={activeTags} setActiveTags={setActiveTags} />
+                        <TagFilter text="ANTHRO 213" value="ANTHRO 213" activeTags={activeTags} setActiveTags={setActiveTags} />
+                        <TagFilter text="ASTRO 110" value="ASTRO 110" activeTags={activeTags} setActiveTags={setActiveTags} />
+                        <TagFilter text="BIO 217" value="BIO 217" activeTags={activeTags} setActiveTags={setActiveTags} />
+                        <TagFilter text="CHEM 171" value="CHEM 171" activeTags={activeTags} setActiveTags={setActiveTags} />
+                        <TagFilter text="EA 1" value="EA 1" activeTags={activeTags} setActiveTags={setActiveTags} />
                     </div>
 
                     <div id="price-filters" className="filter-group">
@@ -111,11 +114,7 @@ export default function TextBooks({ textbookCountRef }) {
                 </div>
             </div>
 
-            <div className="items-wrapper"
-                onClick={() => {
-                    if (selectedItem) { setSelectedItem("") }
-                }}
-            >
+            <div className="items-wrapper">
                 {itemslist}
             </div>
         </div>

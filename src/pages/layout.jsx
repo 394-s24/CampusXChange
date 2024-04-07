@@ -11,11 +11,11 @@ export default function Layout({content}) {
         <div className="App">
             <div className="header">
                 <div className="menu-icon">
-                    <FontAwesomeIcon icon={faBars} size="lg" />
+                    {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
                 </div>
-                <div className="logo-text">
+                <a className="logo-text" href="/">
                     CampusXChange
-                </div>
+                </a>
                 <div className="filter-icon" >
                 </div>
             </div>

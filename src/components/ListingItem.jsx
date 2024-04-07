@@ -11,7 +11,9 @@ export default function ListingItem({ item, handleSelect }) {
                     <img className="item-image" src={defaultImage} />
                 </div>
                 <div className="item-info-wrapper">
-                    <div className="item-name">{item.Name}</div>
+                    <div className="item-name">{
+                        item.Name.length > 50 ? item.Name.substring(0, 50) + "..." : item.Name
+                    }</div>
                     <div className="item-price">{item.Price}</div>
                     <br />
                     <div className="item-description">

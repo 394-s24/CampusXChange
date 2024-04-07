@@ -83,3 +83,12 @@
     align-content: center;
     width: -webkit-fill-available;
 }
+
+.item-details-exit {
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 2rem;
+    color: white;
+}
