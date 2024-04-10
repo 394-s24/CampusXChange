@@ -14,12 +14,7 @@ import Layout from "./pages/layout";
 import Contact from "./pages/contact";
 import TextBooks from "./pages/products/textbooks";
 
-// Firebase Realtime Database
-//const firebaseConfig = {
-  //databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
-//};
-
-// better config? hopefully this doesn't messs with the real time database
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyDfg5GzgVZFceNSIyv36G_s8r9D-HEpo3k",
   authDomain: "campus-xchange.firebaseapp.com",
