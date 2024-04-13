@@ -9,20 +9,13 @@ import './contact.css'
 /* Firebase */
 import { onValue } from "firebase/database";
 
-export default function Contact({ textbookCountRef }) {
+export default function Contact({ user, textbookCountRef }) {
     return (
         <div className="contact-wrapper">
-            <div>Hong Zhou</div>
-
-            {/* <p>Contact the seller here</p> */}
-
-            <form action="mailto:solaniosassyboi@gmail.com" method="post" className="contact-form"> 
-                <label>Email solaniosassyboi@gmail.com:</label>
-                <textarea name="message" placeholder='Type your message here'/>
-
-                <button type="submit">Send</button> 
-            </form>
-            
+            <div className="profile-photo"></div>
+            <div>{user.displayName}</div>
+            <div>{user.email}</div>
+            {user.phoneNumber ? <div>{user.phoneNumber}</div> : null}
         </div>
     )
 }

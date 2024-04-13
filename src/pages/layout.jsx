@@ -6,41 +6,48 @@ import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortaw
 /* Firebase */
 import { onValue } from "firebase/database";
 
-
-
-
-
 // firebase auth imports
-import { GoogleAuthProvider, signInWithPopup} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged } from "firebase/auth";
 // getting auth from app.jsx
-import {auth} from '../App';
+import { auth } from '../App';
+
 // the handle google for the sign in button
 const handleGoogle = async (e) => {
   const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth,provider)
-  }
+  return signInWithPopup(auth, provider)
+}
 
-  
-export default function Layout({content}) {
-    return (
-        <div className="App">
-            <div className="header">
-              <div className = "sign-in-button">
-                <button onClick={handleGoogle}>Sign In With Google</button>
-              </div>
-                <div className="menu-icon">
-                    {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
-                </div>
-                <a className="logo-text" href="/">
-                    CampusXChange
-                </a>
-                <div className="filter-icon" >
-                </div>
-            </div>
+export default function Layout({ user, content }) {
 
-            {content}
+  const loginButton = (
+    <div className="sign-in-button" >
+      <button onClick={handleGoogle}>Sign In With Google</button>
+    </div >
+  )
 
-            {/* <div className="footer">
+  const userIcon = (
+    <a href="/profile">
+      <div className="user-icon" >
+        {user ? user.displayName : null}
+      </div>
+    </a>
+  )
+
+  return (
+    <div className="App">
+      <div className="header">
+        <div className="menu-icon">
+          {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
+        </div>
+        <a className="logo-text" href="/">
+          CampusXChange
+        </a>
+        {user ? userIcon : loginButton}
+      </div>
+
+      {content}
+
+      {/* <div className="footer">
         <footer>
           <div className="footer-icons">
             <a href="/messages"><FontAwesomeIcon icon={faEnvelope} /></a>
@@ -50,6 +57,6 @@ export default function Layout({content}) {
         </footer>
       </div> */}
 
-        </div>
-    )
+    </div>
+  )
 }

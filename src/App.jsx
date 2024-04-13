@@ -10,7 +10,8 @@ import './App.css';
 /* Firebase */
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref } from "firebase/database";
-import {getAuth} from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+
 /* Pages */
 import Layout from "./pages/layout";
 import Contact from "./pages/contact";
@@ -34,17 +35,27 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 const App = () => {
+  const [user, setUser] = useState("")
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      console.log(user.uid)
+      setUser(user)
+      console.log(user)
+    } else {
+      console.log("user logged out")
+    }
+  })
 
   // initialize Realtime Database and get a reference to the service
   const database = getDatabase(app);
   const textbookCountRef = ref(database, '/textbooks');
-
   
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
-        <Route path="/contact" element={<Layout content={<Contact />} />} />
+        <Route path="/" element={<Layout user={user} content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
+        <Route path="/profile" element={<Layout user={user} content={<Contact user={user} />} />} />
       </Routes>
     </BrowserRouter>
   );

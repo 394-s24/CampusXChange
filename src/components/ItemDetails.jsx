@@ -35,7 +35,7 @@ export default function ItemDetails({ item, toggleDetails }) {
                         <br />
                         Rating: <span>5.5/5.0</span>
                     </div>
-                    <a href="/contact">
+                    <a href="/profile">
                         <div className="item-details-contact">
                             Message
                         </div>
