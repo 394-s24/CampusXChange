@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortawesome/free-solid-svg-icons';
 
 /* Firebase */
-import { onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 // firebase auth imports
 import { GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged } from "firebase/auth";

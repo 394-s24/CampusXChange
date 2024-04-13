@@ -34,6 +34,29 @@ const app = initializeApp(firebaseConfig);
 // auth export
 export const auth = getAuth(app);
 
+// check if user exists before updating realtime db
+const checkUserExists = (userId) => {
+  return firebase.database().ref('users/' + userId).once('value')
+    .then(snapshot => {
+      return snapshot.exists();
+    })
+}
+
+// write / update user data in realtime db
+const writeUserData = (userId, name, email) => {
+  const db = getDatabase();
+  if (!checkUserExists(userId)) {
+    console.log("WRITING")
+    set(ref(db, 'users/' + userId), {
+      name: name,
+      email: email,
+      transactions: 0,
+      buyRating: 0,
+      sellRating: 0
+    });
+  }
+}
+
 const App = () => {
   const [user, setUser] = useState("")
 
@@ -41,6 +64,7 @@ const App = () => {
     if (user) {
       console.log(user.uid)
       setUser(user)
+      writeUserData(user.uid, user.name, user.email)
       console.log(user)
     } else {
       console.log("user logged out")
