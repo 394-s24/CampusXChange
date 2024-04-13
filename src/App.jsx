@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DataSnapshot, onValue } from "firebase/database";
+
 
 import logo from './logo.svg';
 import './App.css';
@@ -31,8 +33,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout content={<TextBooks textbookCountRef={textbookCountRef} />}/>} />
-        <Route path="/contact" element={<Layout content={<Contact />}/>} />
+        <Route path="/" element={<Layout content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
+        <Route path="/contact" element={<Layout content={<Contact />} />} />
       </Routes>
     </BrowserRouter>
   );
