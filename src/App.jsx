@@ -69,14 +69,14 @@ const App = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user.uid)
-      setUser(user)
-      writeUserData(user.uid, user.name, user.email)
-      console.log(user)
+      console.log(user.uid);
+      setUser(user);
+      writeUserData(user.uid, user.displayName, user.email);
+      console.log(user);
     } else {
-      console.log("user logged out")
+      console.log("user logged out");
     }
-  })
+  });
 
   // initialize Realtime Database and get a reference to the service
   const database = getDatabase(app);
