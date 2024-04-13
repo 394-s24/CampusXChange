@@ -9,6 +9,23 @@ import './contact.css'
 /* Firebase */
 import { onValue } from "firebase/database";
 
+import { getAuth, signOut } from "firebase/auth";
+
+
+const signOutButton = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        console.log("signed out");
+    }).catch((error) => {
+        // An error happened.
+        console.log("ERROR: ", error);
+    });
+
+    // redirect to home page
+}
+
+
 export default function Contact({ user, textbookCountRef }) {
     return (
         <div className="contact-wrapper">
@@ -16,6 +33,11 @@ export default function Contact({ user, textbookCountRef }) {
             <div>{user.displayName}</div>
             <div>{user.email}</div>
             {user.phoneNumber ? <div>{user.phoneNumber}</div> : null}
+
+            <a href="/">
+                <button onClick={signOutButton}>Sign Out</button>
+            </a>
+
         </div>
     )
 }

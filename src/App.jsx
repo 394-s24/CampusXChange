@@ -3,13 +3,12 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { DataSnapshot, onValue } from "firebase/database";
 
-
 import logo from './logo.svg';
 import './App.css';
 
 /* Firebase */
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref } from "firebase/database";
+import { initializeApp } from "firebase/app"; // firebase
+import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 /* Pages */
@@ -35,18 +34,26 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 // check if user exists before updating realtime db
-const checkUserExists = (userId) => {
-  return firebase.database().ref('users/' + userId).once('value')
+async function checkUserExists(userId) {
+  const db = getDatabase();
+
+  return get(ref(db, 'users/' + userId))
     .then(snapshot => {
+      console.log("snapshot.exists: ", snapshot.exists());
       return snapshot.exists();
     })
+  // return firebase.database().ref('users/' + userId).once('value')
+  //   .then(snapshot => {
+  //     return snapshot.exists();
+  //   })
 }
 
 // write / update user data in realtime db
-const writeUserData = (userId, name, email) => {
+async function writeUserData(userId, name, email) {
+  let res = await checkUserExists(userId);
   const db = getDatabase();
-  if (!checkUserExists(userId)) {
-    console.log("WRITING")
+  if (!res) {
+    console.log("WRITING");
     set(ref(db, 'users/' + userId), {
       name: name,
       email: email,
@@ -74,7 +81,7 @@ const App = () => {
   // initialize Realtime Database and get a reference to the service
   const database = getDatabase(app);
   const textbookCountRef = ref(database, '/textbooks');
-  
+
   return (
     <BrowserRouter>
       <Routes>
