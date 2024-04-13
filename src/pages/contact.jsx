@@ -8,9 +8,10 @@ import './contact.css'
 
 /* Firebase */
 import { onValue } from "firebase/database";
-
 import { getAuth, signOut } from "firebase/auth";
 
+/* Components */
+import Message from '../components/Message';
 
 const signOutButton = () => {
     const auth = getAuth();
@@ -25,7 +26,6 @@ const signOutButton = () => {
     // redirect to home page
 }
 
-
 export default function Contact({ user, textbookCountRef }) {
     return (
         <div className="contact-wrapper">
@@ -37,6 +37,7 @@ export default function Contact({ user, textbookCountRef }) {
             <a href="/">
                 <button onClick={signOutButton}>Sign Out</button>
             </a>
+            <Message></Message>
 
         </div>
     )
