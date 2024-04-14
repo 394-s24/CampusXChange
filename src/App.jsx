@@ -86,7 +86,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout user={user} content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
-        <Route path="/profile" element={<Layout user={user} content={<Contact user={user} />} />} />
+        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact user={user} />} />} />
       </Routes>
     </BrowserRouter>
   );

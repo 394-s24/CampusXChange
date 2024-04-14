@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import "./ItemDetails.css";
 import defaultImage from "../resources/images/image.png";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ItemDetails({ item, toggleDetails }) {
-
     return (
         <>
             <div className='item-details-wrapper'>
@@ -35,7 +35,7 @@ export default function ItemDetails({ item, toggleDetails }) {
                         <br />
                         Rating: <span>5.5/5.0</span>
                     </div>
-                    <a href="/profile">
+                    <a href={"/profile/"+item.Uid}>
                         <div className="item-details-contact">
                             Message
                         </div>
