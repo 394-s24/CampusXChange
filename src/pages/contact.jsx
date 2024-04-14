@@ -10,6 +10,7 @@ import { useParams } from "react-router-dom";
 
 /* Firebase */
 import { onValue } from "firebase/database";
+import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
 /* Components */
@@ -34,16 +35,26 @@ export default function Contact({ usersCountRef }) {
 
     console.log(params)
 
-    // onValue(usersCountRef, (snapshot) => {
-    //     setUser(snapshot.val());
-    // });
+    const db = getDatabase();
+
+    useEffect(() => {
+        get(ref(db, `users/` + params.userid)).then((snapshot) => {
+            if (snapshot.exists()) {
+                setUser(snapshot.val());
+            }
+            else {
+                setUser(null);
+            }
+        }).catch((error) => {
+            console.error(error);
+        })
+    }, []);
     
-    console.log(user)
 
     return (
         <div className="contact-wrapper">
             <div className="profile-photo"></div>
-            <div>{user ? user.displayName : ""}</div>
+            <div>{user ? user.name : ""}</div>
             <div>{user ? user.email : ""}</div>
             {user ? (user.phoneNumber ? <div>{user.phoneNumber}</div> : null) : null}
 
