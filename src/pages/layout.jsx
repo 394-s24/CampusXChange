@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortawesome/free-solid-svg-icons';
 
+import { useParams } from "react-router-dom";
+
 /* Firebase */
 import { getDatabase, ref, set, onValue } from "firebase/database";
 
@@ -17,7 +19,10 @@ const handleGoogle = async (e) => {
   return signInWithPopup(auth, provider)
 }
 
-export default function Layout({ user, content }) {
+export default function Layout(props) {
+
+  const user = props.user;
+  const content = props.content;
 
   const loginButton = (
     <div className="sign-in-button" >

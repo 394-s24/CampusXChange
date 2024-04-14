@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortawesome/free-solid-svg-icons';
 import './contact.css'
 
+import { useParams } from "react-router-dom";
+
 // import emailjs from '@emailjs/browser';
 
 /* Firebase */
@@ -26,13 +28,24 @@ const signOutButton = () => {
     // redirect to home page
 }
 
-export default function Contact({ user, textbookCountRef }) {
+export default function Contact({ usersCountRef }) {
+    const [user, setUser] = useState();
+    const params = useParams();
+
+    console.log(params)
+
+    // onValue(usersCountRef, (snapshot) => {
+    //     setUser(snapshot.val());
+    // });
+    
+    console.log(user)
+
     return (
         <div className="contact-wrapper">
             <div className="profile-photo"></div>
-            <div>{user.displayName}</div>
-            <div>{user.email}</div>
-            {user.phoneNumber ? <div>{user.phoneNumber}</div> : null}
+            <div>{user ? user.displayName : ""}</div>
+            <div>{user ? user.email : ""}</div>
+            {user ? (user.phoneNumber ? <div>{user.phoneNumber}</div> : null) : null}
 
             <a href="/">
                 <button onClick={signOutButton}>Sign Out</button>

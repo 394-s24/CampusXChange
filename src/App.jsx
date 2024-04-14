@@ -69,10 +69,8 @@ const App = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      console.log(user.uid);
       setUser(user);
       writeUserData(user.uid, user.displayName, user.email);
-      console.log(user);
     } else {
       console.log("user logged out");
     }
@@ -81,12 +79,13 @@ const App = () => {
   // initialize Realtime Database and get a reference to the service
   const database = getDatabase(app);
   const textbookCountRef = ref(database, '/textbooks');
+  const usersCountRef = ref(database, '/users');
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout user={user} content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
-        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact user={user} />} />} />
+        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact usersCountRef={usersCountRef} />} />} />
       </Routes>
     </BrowserRouter>
   );

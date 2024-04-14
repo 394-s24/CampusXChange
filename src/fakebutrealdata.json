@@ -16,7 +16,8 @@
       "Tags": [
         "anthropology",
         "ANTHRO 213"
-      ]
+      ],
+      "Uid" : "5zFqAQwfjjQ3QA9GFBlRh6xqRq43"
     },
     {
       "Name": "The Search for Life in the Universe",
@@ -33,7 +34,8 @@
       "Tags": [
         "astronomy",
         "ASTRO 110"
-      ]
+      ],
+      "Uid" : "5zFqAQwfjjQ3QA9GFBlRh6xqRq43"
     },
     {
       "Name": "Human Physiology: An Integrated Approach",
@@ -49,7 +51,8 @@
       "Tags": [
         "biology",
         "BIO 217"
-      ]
+      ],
+      "Uid" : "5zFqAQwfjjQ3QA9GFBlRh6xqRq43"
     },
     {
       "Name": "General Chemistry: Principles and Modern Applications",
@@ -66,7 +69,8 @@
       "Tags": [
         "chemistry",
         "CHEM 171"
-      ]
+      ],
+      "Uid" : "Hd24azuKu0dMccJfaUO3geMRKey1"
     },
     {
       "Name": "General Chemistry: Principles and Modern Applications",
@@ -83,7 +87,8 @@
       "Tags": [
         "chemistry",
         "CHEM 171"
-      ]
+      ],
+      "Uid" : "Hd24azuKu0dMccJfaUO3geMRKey1"
     },
     {
       "Name": "Linear Algebra and Its Applications",
@@ -101,7 +106,8 @@
       "Tags": [
         "ea",
         "EA 1"
-      ]
+      ],
+      "Uid" : "Hd24azuKu0dMccJfaUO3geMRKey1"
     },
     {
       "Name": "New Ideas from Dead Economists: An Introduction to Modern Economic Thought",
@@ -118,7 +124,8 @@
       "Tags": [
         "economics",
         "ECON 201"
-      ]
+      ],
+      "Uid" : "Hd24azuKu0dMccJfaUO3geMRKey1"
     },
     {
       "Name": "Microeconomics",
@@ -135,7 +142,8 @@
       "Tags": [
         "economics",
         "ECON 301"
-      ]
+      ],
+      "Uid" : "Hd24azuKu0dMccJfaUO3geMRKey1"
     },
     {
       "Name": "Essential Calculus: Early Transcendentals - Standalone Book",
@@ -151,7 +159,8 @@
       "Tags": [
         "math",
         "MATH 230"
-      ]
+      ],
+      "Uid" : "n0WNTDxn34WxNZDVhO16jsWdBsH2"
     },
     {
       "Name": "The Ethical Life: Fundamental Readings in Ethics and Moral Problems",
@@ -167,7 +176,8 @@
       "Tags": [
         "philosophy",
         "PHIL 260"
-      ]
+      ],
+      "Uid" : "n0WNTDxn34WxNZDVhO16jsWdBsH2"
     },
     {
       "Name": "Understanding Political Science Research Methods: The Challenge of Inference",
@@ -185,7 +195,8 @@
       "Tags": [
         "political science",
         "POLI_SCI 210"
-      ]
+      ],
+      "Uid" : "n0WNTDxn34WxNZDVhO16jsWdBsH2"
     },
     {
       "Name": "Psychological Science",
@@ -201,7 +212,8 @@
       "Tags": [
         "psychology",
         "PSYCH 110"
-      ]
+      ],
+      "Uid" : "n0WNTDxn34WxNZDVhO16jsWdBsH2"
     },
     {
       "Name": "An Introduction to Buddhism: Teachings, History and Practices (Introduction to Religion)",
@@ -217,7 +229,8 @@
       "Tags": [
         "religion",
         "RELIGION 210"
-      ]
+      ],
+      "Uid" : "uvnjmr1R9laZ2EzLBSTf1xOyuuE2"
     },
     {
       "Name": "Writing Short Films: Structure and Content for Screenwriters",
@@ -233,7 +246,8 @@
       "Tags": [
         "rtvf",
         "RTVF 260"
-      ]
+      ],
+      "Uid" : "uvnjmr1R9laZ2EzLBSTf1xOyuuE2"
     },
     {
       "Name": "American Psychosis: How the Federal Government Destroyed the Mental Illness Treatment System",
@@ -249,7 +263,8 @@
       "Tags": [
         "social_policy",
         "SOC_POL 304"
-      ]
+      ],
+      "Uid" : "uvnjmr1R9laZ2EzLBSTf1xOyuuE2"
     }
   ]
 }
