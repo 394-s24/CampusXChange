@@ -29,7 +29,7 @@ const signOutButton = () => {
     // redirect to home page
 }
 
-export default function Contact({ usersCountRef }) {
+export default function Contact({ usersCountRef, curUser }) {
     const [user, setUser] = useState();
     const params = useParams();
 
@@ -57,10 +57,7 @@ export default function Contact({ usersCountRef }) {
             <div>{user ? user.name : ""}</div>
             <div>{user ? user.email : ""}</div>
             {user ? (user.phoneNumber ? <div>{user.phoneNumber}</div> : null) : null}
-
-            <a href="/">
-                <button onClick={signOutButton}>Sign Out</button>
-            </a>
+            {user ? (curUser.uid == params.userid ? <a href="/"> <button onClick={signOutButton}>Sign Out</button> </a> : null) : null}
             <Message></Message>
 
         </div>

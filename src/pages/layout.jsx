@@ -31,7 +31,7 @@ export default function Layout(props) {
   )
 
   const userIcon = (
-    <a href="/profile">
+    <a href={"/profile/" + user.uid}>
       <div className="user-icon" >
         {user ? user.displayName : null}
       </div>
