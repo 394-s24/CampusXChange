@@ -33,6 +33,7 @@ const Message = () => {
             uid,
         });
         setMessage("");
+        alert("Message successfully sent!");
       };
 
     return (
