@@ -9,7 +9,7 @@ import './App.css';
 /* Firebase */
 import { initializeApp } from "firebase/app"; // firebase
 import { getDatabase, ref, get, set } from "firebase/database";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 /* Pages */
 import Layout from "./pages/layout";
@@ -32,6 +32,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // auth export
 export const auth = getAuth(app);
+
+// checking if email matches the domain
+function validAccount(userEmail){
+	return userEmail.split('@')[1] == 'u.northwestern.edu';
+}
 
 // check if user exists before updating realtime db
 async function checkUserExists(userId) {
@@ -68,11 +73,12 @@ const App = () => {
   const [user, setUser] = useState("")
 
   onAuthStateChanged(auth, (user) => {
-    if (user) {
+    if (validAccount(user.email)) {
       setUser(user);
       writeUserData(user.uid, user.displayName, user.email);
+      console.log("User Authed")
     } else {
-      console.log("user logged out");
+      console.log("Not auth");
     }
   });
 
