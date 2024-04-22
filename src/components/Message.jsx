@@ -25,10 +25,10 @@ const Message = () => {
 
     const send = async (event) => {
         event.preventDefault();
-        const { uid, displayName } = auth.currentUser;
+        const { uid, name } = auth.currentUser;
         await addDoc(collection(db, "messages"), {
+            name: name,
             text: message,
-            name: displayName,
             createdAt: serverTimestamp(),
             uid,
         });
@@ -43,7 +43,7 @@ const Message = () => {
         </label>
         <input
           type="text"
-          placeholder="type message..."
+          placeholder="send a message :)"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />

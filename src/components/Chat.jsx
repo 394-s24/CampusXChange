@@ -6,9 +6,11 @@ import {
   onSnapshot,
   limit,
 } from "firebase/firestore";
-import { db } from "../Message";
+import { db } from "./Message";
+import Message from "./Message";
+import MessageBubble from "./MessageBubble";
 
-const Chat = () => {
+const Chat = ( {sellerId} ) => {
     const [messages, setMessages] = useState([]);
 
     // query firestore for 20 msgs at a time
@@ -34,13 +36,16 @@ const Chat = () => {
         }, []);
 
         return (
-            <main className="chat-box">
-              <div className="messages-wrapper">
+            <main>
+              <div>
                 {messages?.map((message) => (
-                  <Message key={message.id} message={message} />
+                  <MessageBubble key={message.id} message={message} sellerId={sellerId}/>
                 ))}
               </div>
+              <Message/>
             </main>
           );
 
 }
+
+export default Chat;

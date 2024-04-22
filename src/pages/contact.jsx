@@ -14,7 +14,7 @@ import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
 /* Components */
-import Message from '../components/Message';
+import Chat from '../components/Chat';
 
 const signOutButton = () => {
     const auth = getAuth();
@@ -58,7 +58,7 @@ export default function Contact({ usersCountRef, curUser }) {
             <div>{user ? user.email : ""}</div>
             {user ? (user.phoneNumber ? <div>{user.phoneNumber}</div> : null) : null}
             {user ? (curUser.uid == params.userid ? <a href="/"> <button onClick={signOutButton}>Sign Out</button> </a> : null) : null}
-            <Message></Message>
+            <Chat sellerId={params.userid}></Chat>
 
         </div>
     )
