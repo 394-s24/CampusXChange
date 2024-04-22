@@ -1,11 +1,143 @@
 .contact-wrapper {
     display: flex;
-    margin-top: 60px;
-    flex-direction: column;
+    flex-direction: row;
+    height: 100vh;
 }
 
 .contact-form {
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    margin:1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    height: fit-content;
+}
+
+.profile-photo {
+    height: 5rem;
+    width: 5rem;
+    background-color: lightgrey;
+    border-radius: 5em;
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.profile-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.profile-email {
+    margin: 0rem 1rem 0rem 1rem;
+}
+
+.profile-button {
+    margin: 0rem 1rem 1rem 1rem;
+}
+
+.profile-option {
+    text-align: left;
+    width: -webkit-fill-available;
+    padding: 0.25rem 1rem 0.25rem 1rem;
+    cursor: pointer;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.profile-option:hover {
+    background-color: lightgrey;
+}
+
+.profile-content {
+    margin-top:4rem;
+    padding: 1rem;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-content-label {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.postings-options {
+    display: flex;
+    flex-direction: row;
+}
+
+.postings-option {
+    font-size: 1rem;
+    transition: 0.5s;
+    cursor: pointer;
+    padding: 0.25rem 1rem 0.25rem 1rem;
+    border-radius: 1em;
+    border: 1px solid black;
+}
+
+.postings-option:hover {
+    box-shadow: 0 5px 2px rgba(0, 0, 0, 0.4);
+}
+
+.messages-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    height: -webkit-fill-available;
+    overflow: hidden;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgrey;
+    width: 20rem;
+    height: 100%;
+}
+
+.message-selected {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    width: -webkit-fill-available;
+}
+
+.message-option {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.message-option:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+.message-option-image {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 5em;
+    background-color: lightgrey;
+    margin-right: 1rem;
 }

@@ -31,6 +31,7 @@ const signOutButton = () => {
 
 export default function Contact({ usersCountRef, curUser }) {
     const [user, setUser] = useState();
+    const [profileOption, setProfileOption] = useState("Postings");
     const params = useParams();
 
     console.log(params)
@@ -49,17 +50,84 @@ export default function Contact({ usersCountRef, curUser }) {
             console.error(error);
         })
     }, []);
-    
+
+    const profilePostings = (
+        <>
+            {user ? (curUser.uid == params.userid ? <div className="postings-options">
+                <div className="postings-option">
+                    New Post
+                </div>
+            </div> : null) : null}
+            <div>No Postings</div>
+        </>
+    )
+
+    const profileMessages = (
+        <div className="messages-card">
+            <div className="messages-list">
+                <div className="message-option">
+                    <div className="message-option-image">
+
+                    </div>
+                    <div className="message-option-used">
+                        Jason Bourne
+                    </div>
+                </div>
+                <div className="message-option">
+                    <div className="message-option-image">
+
+                    </div>
+                    <div className="message-option-used">
+                        John Wick
+                    </div>
+                </div>
+            </div>
+            <div className="message-selected">
+                No Message Selected
+            </div>
+        </div>
+    )
+
+    const profileSettings = (
+        "Settings"
+    )
+
+    const selectedProfileOption = {
+        "Postings": profilePostings,
+        "Messages": profileMessages,
+        "Settings": profileSettings
+    }
 
     return (
         <div className="contact-wrapper">
-            <div className="profile-photo"></div>
-            <div>{user ? user.name : ""}</div>
-            <div>{user ? user.email : ""}</div>
-            {user ? (user.phoneNumber ? <div>{user.phoneNumber}</div> : null) : null}
-            {user ? (curUser.uid == params.userid ? <a href="/"> <button onClick={signOutButton}>Sign Out</button> </a> : null) : null}
-            <Message></Message>
+            <div className="profile-info">
+                <div className="profile-card">
+                    <div className="profile-photo"></div>
+                    <div className="profile-name">{user ? user.name : ""}</div>
+                    <div className="profile-email">{user ? user.email : ""}</div>
+                    {user ? (user.phoneNumber ? <div className="profile-number">{user.phoneNumber}</div> : null) : null}
+                </div>
 
+                <div className="profile-card">
+                    <div className="profile-option" onClick={() => setProfileOption("Postings")}>
+                        Postings
+                    </div>
+                    {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Messages")}>
+                        Messages
+                    </div> : null) : null}
+                    {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Settings")}>
+                        Settings
+                    </div> : null) : null}
+                    {user ? (curUser.uid == params.userid ? <a href="/" className="profile-option"> <div className="profile-signout" onClick={signOutButton}>Sign Out</div> </a> : null) : null}
+                </div>
+            </div>
+            <div className="profile-content">
+                <div className="profile-content-label">
+                    {profileOption}
+                </div>
+                <br />
+                {selectedProfileOption[profileOption]}
+            </div>
         </div>
     )
 }
