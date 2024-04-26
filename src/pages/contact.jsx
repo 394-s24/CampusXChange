@@ -14,7 +14,7 @@ import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
 /* Components */
-import Message from '../components/Message';
+import Chat from '../components/Chat';
 
 const signOutButton = () => {
     const auth = getAuth();
@@ -128,6 +128,8 @@ export default function Contact({ usersCountRef, curUser }) {
                 <br />
                 {selectedProfileOption[profileOption]}
             </div>
+
+            <Chat sellerId={params.userid}></Chat>
         </div>
     )
 }
