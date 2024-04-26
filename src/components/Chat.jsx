@@ -42,7 +42,7 @@ const Chat = ( {sellerId} ) => {
                   <MessageBubble key={message.id} message={message} sellerId={sellerId}/>
                 ))}
               </div>
-              <Message/>
+              <Message sellerId={sellerId}/>
             </main>
           );
 

@@ -20,17 +20,19 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-const Message = () => {
+const Message = ({sellerId}) => {
     const [message, setMessage] = useState("");
 
     const send = async (event) => {
         event.preventDefault();
-        const { uid, name } = auth.currentUser;
+        const { uid, displayName } = auth.currentUser;
         await addDoc(collection(db, "messages"), {
-            name: name,
+            name: displayName,
+            to: sellerId,
             text: message,
             createdAt: serverTimestamp(),
             uid,
+            
         });
         setMessage("");
         alert("Message successfully sent!");

@@ -34,7 +34,7 @@ export default function Contact({ usersCountRef, curUser }) {
     const [profileOption, setProfileOption] = useState("Postings");
     const params = useParams();
 
-    console.log(params)
+    console.log("params: ", params);
 
     const db = getDatabase();
 
@@ -64,26 +64,41 @@ export default function Contact({ usersCountRef, curUser }) {
 
     const profileMessages = (
         <div className="messages-card">
-            <div className="messages-list">
-                <div className="message-option">
-                    <div className="message-option-image">
+            {/* Only display the sidebar that selects user to message if viewing own profile */}
+            {(curUser.uid == params.userid) &&
+                <div className="messages-list">
+                    <div className="message-option">
+                        <div className="message-option-image">
 
+                        </div>
+                        <div className="message-option-used">
+                            Jason Bourne
+                        </div>
                     </div>
-                    <div className="message-option-used">
-                        Jason Bourne
-                    </div>
-                </div>
-                <div className="message-option">
-                    <div className="message-option-image">
+                    <div className="message-option">
+                        <div className="message-option-image">
 
+                        </div>
+                        <div className="message-option-used">
+                            John Wick
+                        </div>
                     </div>
-                    <div className="message-option-used">
-                        John Wick
+
+                    <div className="message-option">
+                        <div className="message-option-image">
+
+                        </div>
+                        <div className="message-option-used">
+                            Rachel Yao
+                        </div>
                     </div>
+
                 </div>
-            </div>
+            }
+
             <div className="message-selected">
-                No Message Selected
+                {/* No Message Selected */}
+                <Chat sellerId={params.userid}></Chat>
             </div>
         </div>
     )
@@ -112,9 +127,15 @@ export default function Contact({ usersCountRef, curUser }) {
                     <div className="profile-option" onClick={() => setProfileOption("Postings")}>
                         Postings
                     </div>
-                    {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Messages")}>
+                    {/* {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Messages")}>
                         Messages
-                    </div> : null) : null}
+                    </div> : null) : null} */}
+                    {/* Display Messages tab on the seller's profile too*/}
+                    {user ? (
+                        <div className="profile-option" onClick={() => setProfileOption("Messages")}>
+                            Messages
+                        </div>) : null}
+
                     {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Settings")}>
                         Settings
                     </div> : null) : null}
@@ -128,8 +149,6 @@ export default function Contact({ usersCountRef, curUser }) {
                 <br />
                 {selectedProfileOption[profileOption]}
             </div>
-
-            <Chat sellerId={params.userid}></Chat>
         </div>
     )
 }
