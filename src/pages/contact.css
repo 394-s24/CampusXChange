@@ -141,3 +141,9 @@
     background-color: lightgrey;
     margin-right: 1rem;
 }
+
+.postings-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

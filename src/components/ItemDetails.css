@@ -6,7 +6,10 @@
 
     margin: 1rem;
     width: 40rem;
+    max-width: 95%;
     height: 40rem;
+    max-height: 95%;
+
 
     text-align: left;
     transition: color 0.3s ease;
@@ -17,6 +20,7 @@
 .item-details-image-wrapper {
     background-color: lightgrey;
     height: 20rem;
+    max-height: fit-content;
     overflow: hidden;
 }
 
@@ -67,6 +71,7 @@
     border-radius: 1em;
 
     cursor: pointer;
+    text-decoration: none;
 }
 
 .item-details-footer {

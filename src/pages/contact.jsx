@@ -94,14 +94,30 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
     const profilePostings = (
         <>
-            {user ? (curUser.uid == params.userid ? <div className="postings-options">
-                <div className="postings-option">
-                    New Post
+            <div className="postings-options">
+                {user ? (curUser.uid == params.userid ? <div className="postings-options">
+                    <div className="postings-option">
+                        New Post
+                    </div>
+                </div> : null) : null}
+                <div className="search-bar-wrapper">
+                    <div className="search-bar">
+                        <input className="search-input"
+                            name=""
+                            onChange={(event) => setSearchValue(event.target.value)}
+                            placeholder="Search for an item"
+                        />
+                    </div>
+                    <div style={{ "width": "1rem" }} />
                 </div>
-            </div> : null) : null}
-            <div className="items-wrapper">
-                {filteredItems.length > 0 ? itemslist : "No Posting"}
             </div>
+
+            {filteredItems.length > 0 ? 
+                <div className="items-wrapper">
+                    {itemslist}
+                </div> :
+                "No Postings"
+            }
         </>
     )
 
@@ -153,7 +169,6 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const selectedProfileOption = {
         "Postings": profilePostings,
         "Messages": profileMessages,
-        "Settings": profileSettings
     }
 
     return (
@@ -179,9 +194,9 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                             Messages
                         </div>) : null}
 
-                    {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Settings")}>
+                    {/* {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Settings")}>
                         Settings
-                    </div> : null) : null}
+                    </div> : null) : null} */}
                     {user ? (curUser.uid == params.userid ? <a href="/" className="profile-option"> <div className="profile-signout" onClick={signOutButton}>Sign Out</div> </a> : null) : null}
                 </div>
             </div>

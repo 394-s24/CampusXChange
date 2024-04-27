@@ -38,7 +38,7 @@ export default function ItemDetails({ item, toggleDetails }) {
                     </div>
                     <a href={"/profile/"+item.Uid}>
                         <div className="item-details-contact">
-                            Message
+                            Contact
                         </div>
                     </a>
                 </div>
