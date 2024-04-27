@@ -37,7 +37,7 @@ const Chat = ( {sellerId} ) => {
 
         return (
             <main>
-              <div>
+              <div className="message-container">
                 {messages?.map((message) => (
                   <MessageBubble key={message.id} message={message} sellerId={sellerId}/>
                 ))}

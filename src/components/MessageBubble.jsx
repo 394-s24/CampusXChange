@@ -1,6 +1,7 @@
 import React from "react";
 import { getAuth } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import "./MessageBubble.css";
 
 const MessageBubble = ({ message, sellerId }) => {
     const [user] = useAuthState(getAuth());
@@ -12,7 +13,7 @@ const MessageBubble = ({ message, sellerId }) => {
     }
 
     return (
-        <div>
+        <div className={`message-bubble ${(message.uid === user.uid) ? 'sent' : 'received'}`}>
           <div>
             <p><b>{message.name}</b>: {message.text}</p>
           </div>
