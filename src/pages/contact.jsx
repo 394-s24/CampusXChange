@@ -15,6 +15,7 @@ import { getAuth, signOut } from "firebase/auth";
 
 /* Components */
 import Chat from '../components/Chat';
+import ListingItem from '../components/ListingItem'
 
 const signOutButton = () => {
     const auth = getAuth();
@@ -29,9 +30,19 @@ const signOutButton = () => {
     // redirect to home page
 }
 
-export default function Contact({ usersCountRef, curUser }) {
+export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const [user, setUser] = useState();
     const [profileOption, setProfileOption] = useState("Postings");
+    const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
+    const [activeTags, setActiveTags] = useState([]);
+    const [searchValue, setSearchValue] = useState("");
+    const [data, setData] = useState([]);
+    const [filteredItems, setFilteredItems] = useState(data);
+
+    const itemslist = filteredItems.map(item => {
+        return <ListingItem item={item} />
+    });
+
     const params = useParams();
 
     console.log("params: ", params);
@@ -51,6 +62,36 @@ export default function Contact({ usersCountRef, curUser }) {
         })
     }, []);
 
+    useEffect(() => {
+        // retrieve data from firebase realtime db
+        onValue(textbookCountRef, (snapshot) => {
+            setData(snapshot.val());
+        });
+
+        // min might not be used for now, but I wanted to make this function more general
+        let filtered = data.filter(item => item.Price <= activePriceFilter);
+
+        // Get post by this user
+        filtered = filtered.filter(item => item.Uid === params.userid)
+
+        // filter by tags
+        // if no tags selected do not do anything
+        if (activeTags.length > 0) {
+            let temp = [];
+            activeTags.forEach(tag => {
+                temp = [...temp, ...filtered.filter(item => item.Tags.includes(tag))];
+            });
+
+            filtered = temp;
+        }
+        if (searchValue.length > 0) {
+            // non case-sensitive
+            filtered = filtered.filter(item => item.Name.toLowerCase().includes(searchValue.toLowerCase()))
+        }
+
+        setFilteredItems(filtered);
+    }, [searchValue, activePriceFilter, activeTags, data])
+
     const profilePostings = (
         <>
             {user ? (curUser.uid == params.userid ? <div className="postings-options">
@@ -58,7 +99,9 @@ export default function Contact({ usersCountRef, curUser }) {
                     New Post
                 </div>
             </div> : null) : null}
-            <div>No Postings</div>
+            <div className="items-wrapper">
+                {filteredItems.length > 0 ? itemslist : "No Posting"}
+            </div>
         </>
     )
 

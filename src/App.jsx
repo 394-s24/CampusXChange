@@ -15,6 +15,7 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import Layout from "./pages/layout";
 import Contact from "./pages/contact";
 import TextBooks from "./pages/products/textbooks";
+import Posting from "./pages/posting";
 
 // Firebase Config
 const firebaseConfig = {
@@ -91,7 +92,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout user={user} content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
-        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact usersCountRef={usersCountRef} curUser={user} />} />} />
+        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact textbookCountRef={textbookCountRef} usersCountRef={usersCountRef} curUser={user} />} />} />
+        <Route path="/posting/:postid" element={<Layout user={user} content={<Posting textbookCountRef={textbookCountRef} curUser={user} />} />} />
       </Routes>
     </BrowserRouter>
   );

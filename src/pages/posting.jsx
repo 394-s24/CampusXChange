@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import "./ItemDetails.css";
+import "./posting.css";
 import defaultImage from "../resources/images/image.png";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function ItemDetails({ item, toggleDetails }) {
+export default function Posting({ item, toggleDetails }) {
     console.log(item)
     return (
         <>

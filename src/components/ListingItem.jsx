@@ -15,7 +15,6 @@ export default function ListingItem({ item, handleSelect }) {
                         item.Name.length > 50 ? item.Name.substring(0, 50) + "..." : item.Name
                     }</div>
                     <div className="item-price">{item.Price}</div>
-                    <br />
                     <div className="item-description">
                         {"Authors:  "}
                         {
@@ -27,7 +26,6 @@ export default function ListingItem({ item, handleSelect }) {
                     <div className="item-condition">
                         Edition: <span>{item.Edition}</span>
                     </div>
-                    <br />
                     <div className="item-condition">
                         Condition: <span>{item.Condition}</span>
                     </div>
