@@ -5,16 +5,25 @@ import { getFirestore, addDoc, collection, serverTimestamp } from "firebase/fire
 import { initializeApp } from "firebase/app";
 
 // Firebase Config
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDfg5GzgVZFceNSIyv36G_s8r9D-HEpo3k",
+//     authDomain: "campus-xchange.firebaseapp.com",
+//     databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
+//     projectId: "campus-xchange",
+//     storageBucket: "campus-xchange.appspot.com",
+//     messagingSenderId: "517180626197",
+//     appId: "1:517180626197:web:abdcd3e001261317dc451c",
+//     measurementId: "G-P455SCVKCZ"
+//   };
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDfg5GzgVZFceNSIyv36G_s8r9D-HEpo3k",
-    authDomain: "campus-xchange.firebaseapp.com",
-    databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
-    projectId: "campus-xchange",
-    storageBucket: "campus-xchange.appspot.com",
-    messagingSenderId: "517180626197",
-    appId: "1:517180626197:web:abdcd3e001261317dc451c",
-    measurementId: "G-P455SCVKCZ"
-  };
+  apiKey: "AIzaSyArOEMm9_9B8_7_QdgozYJtAtDvHqxlldI",
+  authDomain: "campusxchange-633a6.firebaseapp.com",
+  projectId: "campusxchange-633a6",
+  storageBucket: "campusxchange-633a6.appspot.com",
+  messagingSenderId: "1038793350652",
+  appId: "1:1038793350652:web:9b376b768866b9214b6679"
+};
   
 // initialize Firebase
 const app = initializeApp(firebaseConfig);
