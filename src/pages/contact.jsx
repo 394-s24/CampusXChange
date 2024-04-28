@@ -13,10 +13,14 @@ import { onValue } from "firebase/database";
 import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
+// FIRESTORE
+
+import { getFirestore } from "firebase/firestore";
 
 /* Components */
 import Chat from '../components/Chat';
 import ListingItem from '../components/ListingItem'
+import toast, { Toaster } from 'react-hot-toast';
 
 const signOutButton = () => {
     const auth = getAuth();
@@ -50,7 +54,11 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     });
 
     const params = useParams();
+    console.log("params:", params);
     const db = getDatabase();
+    const notify = () => toast('Post submitted!');
+    const emptyFields = () => toast('Please fill in all fields.');
+
 
     function addAuthor(e) {
         // All buttons inside a form submit by default, so use e.preventDefault() to stop this behavior
@@ -91,26 +99,49 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     }
 
     function handleSubmit(e) {
-        e.preventDefault();
-        const classValue = e.target.class.value;
-        const conditionValue = e.target.condition.value;
-        const descriptionValue = e.target.description.value;
-        const editionValue = e.target.edition.value;
-        const nameValue = e.target.name.value;
-        const priceValue = e.target.price.value;
+
+        try {
+            e.preventDefault();
+            const classValue = e.target.class.value;
+            const conditionValue = e.target.condition.value;
+            const descriptionValue = e.target.description.value;
+            const editionValue = e.target.edition.value;
+            const nameValue = e.target.name.value;
+            const priceValue = e.target.price.value;
+
+            set(ref(db, `textbooks/${nextItemNumber}`), {
+                Authors: authors,  // This one is already defined as a state
+                Class: classValue,
+                Condition: conditionValue,
+                Description: descriptionValue,
+                Edition: editionValue,
+                Name: nameValue,
+                Price: parseInt(priceValue),
+                Tags: tags,
+                Uid: curUser.uid,
+                Username: curUser.displayName
+            });
+            notify();
+        } catch {
+            emptyFields();
+        }
+
+    }
+
+    function getMessages() {
+        const firestore = getFirestore(app);
+        // Create a reference to the cities collection
+        const messagesRef = firestore.collection('messages');
+
+        // Create a query against the collection
+        const userMessages = messagesRef.where('uid', '==', params.userid);
+        const userMessages2 = messagesRef.where('to', '==', params.userid);
         
-        set(ref(db, `textbooks/${nextItemNumber}`), {
-            Authors: authors,  // This one is already defined as a state
-            Class: classValue,
-            Condition: conditionValue,
-            Description: descriptionValue,
-            Edition: editionValue,
-            Name: nameValue,
-            Price: parseInt(priceValue),
-            Tags: tags,
-            Uid: curUser.uid,
-            Username: curUser.displayName
-        });
+        // userMessages: get the to field
+        
+        // userMessages2: get the uid field
+
+        // combine them, get unique
     }
 
     useEffect(() => {
@@ -195,6 +226,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
         </>
     )
 
+
     const profileMessages = (
         <div className="messages-card">
             {/* Only display the sidebar that selects user to message if viewing own profile */}
@@ -231,6 +263,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
             <div className="message-selected">
                 {/* No Message Selected */}
+
                 <Chat sellerId={params.userid}></Chat>
             </div>
         </div>
@@ -287,7 +320,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {/* AUTHORS */}
                             {authors.map((author, i) =>
-                                <input key = {i} name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
+                                <input key={i} name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
                             }
                             <div className="button-container">
                                 <button onClick={addAuthor}>Add New Author</button>
@@ -303,7 +336,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
                             {/* TAGS */}
                             {tags.map((tag, i) =>
-                                <input key = {i} name={"tag" + i} placeholder='Enter tag here' onChange={(e) => updateTag(i, e.target.value)} />)
+                                <input key={i} name={"tag" + i} placeholder='Enter tag here' onChange={(e) => updateTag(i, e.target.value)} />)
                             }
                             <div className="button-container">
                                 <button onClick={addTag}>Add New Tag</button>
@@ -311,6 +344,13 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                             </div>
 
                             <button type="submit">Submit Posting</button>
+                            <Toaster toastOptions={{
+                                className: '',
+                                style: {
+                                    top: '50px',
+                                    position: 'relative'
+                                },
+                            }} />
                         </form>
                     </div>
                 }
