@@ -10,6 +10,8 @@ import './App.css';
 import { initializeApp } from "firebase/app"; // firebase
 import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+
 
 /* Pages */
 import Layout from "./pages/layout";
@@ -72,6 +74,8 @@ async function writeUserData(userId, name, email) {
 
 const App = () => {
   const [user, setUser] = useState("")
+  const firestore = getFirestore(app);
+
 
   onAuthStateChanged(auth, (user) => {
     if (validAccount(user.email)) {
@@ -93,7 +97,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout user={user} content={<TextBooks textbookCountRef={textbookCountRef} />} />} />
-        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact textbookCountRef={textbookCountRef} usersCountRef={usersCountRef} curUser={user} />} />} />
+        <Route path="/profile/:userid" element={<Layout user={user} content={<Contact textbookCountRef={textbookCountRef} usersCountRef={usersCountRef} curUser={user} firestore={firestore} />} />} />
         <Route path="/posting/:postid" element={<Layout user={user} content={<Posting textbookCountRef={textbookCountRef} curUser={user} />} />} />
       </Routes>
     </BrowserRouter>

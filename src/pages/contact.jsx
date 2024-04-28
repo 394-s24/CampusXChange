@@ -14,7 +14,7 @@ import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
 // FIRESTORE
-
+import { collection, getDocs } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 
 /* Components */
@@ -36,7 +36,7 @@ const signOutButton = () => {
 }
 
 
-export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
+export default function Contact({ textbookCountRef, usersCountRef, curUser, firestore }) {
     const [user, setUser] = useState();
     const [profileOption, setProfileOption] = useState("Postings");
     const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
@@ -56,6 +56,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const params = useParams();
     console.log("params:", params);
     const db = getDatabase();
+    const fs = getFirestore();
     const notify = () => toast('Post submitted!');
     const emptyFields = () => toast('Please fill in all fields.');
 
@@ -128,21 +129,34 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
     }
 
-    function getMessages() {
-        const firestore = getFirestore(app);
+    async function getMessages() {
         // Create a reference to the cities collection
-        const messagesRef = firestore.collection('messages');
+
+
+        //const messagesRef = await getDocs(collection(fs, "messages"));
+
+        //let data = [];
+
+        //messagesRef.forEach((doc) => {
+        //data.push(doc.data()); });
+        //console.log(firestore.collection);
+
+        //const messagesRef = firestore().collection('messages').get();
 
         // Create a query against the collection
-        const userMessages = messagesRef.where('uid', '==', params.userid);
-        const userMessages2 = messagesRef.where('to', '==', params.userid);
-        
+        //const userMessages = messagesRef.where('uid', '==', params.userid);
+        //const userMessages2 = messagesRef.where('to', '==', params.userid);
+        //console.log(userMessages);
+        //console.log(userMessages2);
+
         // userMessages: get the to field
         
         // userMessages2: get the uid field
 
         // combine them, get unique
+
     }
+    getMessages();
 
     useEffect(() => {
         get(ref(db, `users/` + params.userid)).then((snapshot) => {
