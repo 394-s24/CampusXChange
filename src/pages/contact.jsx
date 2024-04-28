@@ -42,6 +42,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const [filteredItems, setFilteredItems] = useState(data);
     const [toggleNewPost, setToggleNewPost] = useState(false);
     const [authors, setAuthors] = useState([""]);
+    const [tags, setTags] = useState([""]);
     const [nextItemNumber, setNextItemNumber] = useState(0);
 
     const itemslist = filteredItems.map((item, i) => {
@@ -70,6 +71,25 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
         setAuthors(newAuthors);
     }
 
+    function addTag(e) {
+        // All buttons inside a form submit by default, so use e.preventDefault() to stop this behavior
+        e.preventDefault();  // Do not let this button submit the form
+        let newTags = [...tags, ""];
+        setTags(newTags);
+    }
+
+    function removeTag(e) {
+        e.preventDefault();
+        let newTags = tags.slice(0, -1);
+        setTags(newTags);
+    }
+
+    function updateTag(tagIndex, updatedName) {
+        let newTags = [...tags];
+        newTags[tagIndex] = updatedName;
+        setTags(newTags);
+    }
+
     function handleSubmit(e) {
         e.preventDefault();
         const classValue = e.target.class.value;
@@ -78,7 +98,6 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
         const editionValue = e.target.edition.value;
         const nameValue = e.target.name.value;
         const priceValue = e.target.price.value;
-        const tagsValue = e.target.tags.value;
         
         set(ref(db, `textbooks/${nextItemNumber}`), {
             Authors: authors,  // This one is already defined as a state
@@ -88,7 +107,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
             Edition: editionValue,
             Name: nameValue,
             Price: parseInt(priceValue),
-            Tags: [tagsValue],
+            Tags: tags,
             Uid: curUser.uid,
             Username: curUser.displayName
         });
@@ -270,8 +289,10 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                             {authors.map((author, i) =>
                                 <input key = {i} name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
                             }
-                            <button onClick={addAuthor}>Add New Author</button>
-                            <button onClick={removeAuthor}>Remove Author</button>
+                            <div className="button-container">
+                                <button onClick={addAuthor}>Add New Author</button>
+                                <button onClick={removeAuthor}>Remove Author</button>
+                            </div>
 
                             <input name="class" placeholder='Type class name here' />
                             <input name="condition" placeholder='Type condition here' />
@@ -281,7 +302,13 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                             <input name="price" type="number" placeholder='Type price here' />
 
                             {/* TAGS */}
-                            <input id="tags" placeholder='Enter a tag here' />
+                            {tags.map((tag, i) =>
+                                <input key = {i} name={"tag" + i} placeholder='Enter tag here' onChange={(e) => updateTag(i, e.target.value)} />)
+                            }
+                            <div className="button-container">
+                                <button onClick={addTag}>Add New Tag</button>
+                                <button onClick={removeTag}>Remove Tag</button>
+                            </div>
 
                             <button type="submit">Submit Posting</button>
                         </form>

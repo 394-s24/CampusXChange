@@ -165,7 +165,54 @@
     transition: color 0.3s ease;
 
     overflow: hidden;
+    overflow-y: auto;
 }
+
+.new-post-popup input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+.new-post-popup button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background-color: darkgrey;
+    color: white;
+    box-shadow: 2px 2px grey;
+}
+
+.new-post-popup button:hover {
+    background-color: lightgrey;
+}
+
+.new-post-popup button-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted layout */
+    gap: 10px;
+}
+
+.new-post-popup button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 5px 5px grey;
+  }
+  
+  .new-post-popup button[type="submit"]:hover {
+    background-color: darkgrey;
+  }
+
 
 .new-post-popup form {
     margin-top: 10%;
