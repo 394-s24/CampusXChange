@@ -42,6 +42,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const [filteredItems, setFilteredItems] = useState(data);
     const [toggleNewPost, setToggleNewPost] = useState(false);
     const [authors, setAuthors] = useState([""]);
+    const [nextItemNumber, setNextItemNumber] = useState(0);
 
     const itemslist = filteredItems.map((item, i) => {
         return <ListingItem key={i} item={item} />
@@ -71,7 +72,6 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("e.target: ", e.target);
         const classValue = e.target.class.value;
         const conditionValue = e.target.condition.value;
         const descriptionValue = e.target.description.value;
@@ -79,8 +79,8 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
         const nameValue = e.target.name.value;
         const priceValue = e.target.price.value;
         const tagsValue = e.target.tags.value;
-        const uuid = crypto.randomUUID();
-        set(ref(db, `textbooks/${uuid}`), {
+        
+        set(ref(db, `textbooks/${nextItemNumber}`), {
             Authors: authors,  // This one is already defined as a state
             Class: classValue,
             Condition: conditionValue,
@@ -114,6 +114,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
         // });
         get(ref(db, "textbooks/")).then(snapshot => {
             setData(snapshot.val());
+            setNextItemNumber(snapshot.val().length);
         })
 
         // min might not be used for now, but I wanted to make this function more general
@@ -263,7 +264,6 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                         </div>
 
                         <h2> Create New Post </h2>
-                        {/* <div className='new-post-popup-info-wrapper'> */}
 
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {/* AUTHORS */}
@@ -278,20 +278,14 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                             <input name="description" placeholder='Type description here' />
                             <input name="edition" placeholder='Type edition here' />
                             <input name="name" placeholder='Type book name here' />
-                            <input name="price" placeholder='Type price here' />
+                            <input name="price" type="number" placeholder='Type price here' />
 
                             {/* TAGS */}
                             <input id="tags" placeholder='Enter a tag here' />
-                            {/* {authors.map((author, i) =>
-                                <input id={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)}/>)
-                            }
-                            <button onClick={addAuthor}>Add New Author</button>
-                            <button onClick={removeAuthor}>Remove Author</button> */}
 
                             <button type="submit">Submit Posting</button>
                         </form>
                     </div>
-                    // </div>
                 }
 
                 <div className="profile-content-label">
