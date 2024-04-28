@@ -43,8 +43,8 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
     const [toggleNewPost, setToggleNewPost] = useState(false);
     const [authors, setAuthors] = useState([""]);
 
-    const itemslist = filteredItems.map(item => {
-        return <ListingItem item={item} />
+    const itemslist = filteredItems.map((item, i) => {
+        return <ListingItem key={i} item={item} />
     });
 
     const params = useParams();
@@ -71,7 +71,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("e.target: ",e.target);
+        console.log("e.target: ", e.target);
         const classValue = e.target.class.value;
         const conditionValue = e.target.condition.value;
         const descriptionValue = e.target.description.value;
@@ -109,9 +109,12 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
 
     useEffect(() => {
         // retrieve data from firebase realtime db
-        onValue(textbookCountRef, (snapshot) => {
+        // onValue(textbookCountRef, (snapshot) => {
+        //     setData(snapshot.val());
+        // });
+        get(ref(db, "textbooks/")).then(snapshot => {
             setData(snapshot.val());
-        });
+        })
 
         // min might not be used for now, but I wanted to make this function more general
         let filtered = data.filter(item => item.Price <= activePriceFilter);
@@ -265,7 +268,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser }) {
                         <form onSubmit={(e) => handleSubmit(e)}>
                             {/* AUTHORS */}
                             {authors.map((author, i) =>
-                                <input name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
+                                <input key = {i} name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
                             }
                             <button onClick={addAuthor}>Add New Author</button>
                             <button onClick={removeAuthor}>Remove Author</button>
