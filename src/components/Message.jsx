@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Message.css';
 import { auth } from '../App';
 import { getFirestore, addDoc, collection, serverTimestamp } from "firebase/firestore";
 /* Firebase */
@@ -57,8 +58,9 @@ const Message = ({sellerId}) => {
           placeholder="send a message :)"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          className="msg-input"
         />
-        <button type="submit">Send</button>
+        <button type="submit" className="msg-send-button">Send</button>
       </form>
     );
   };
