@@ -41,15 +41,18 @@ export default function Layout(props) {
   return (
     <div className="App">
       <div className="header">
-        <div className="menu-icon">
+        <div className="header-section header-left">
           {/* <FontAwesomeIcon icon={faBars} size="lg" /> */}
         </div>
-        <a className="logo-text" href="/">
-          CampusXChange
-        </a>
-        {user ? userIcon : loginButton}
+        <div className="header-section header-center">
+          <a className="logo-text" href="/">
+            CampusXChange
+          </a>
+        </div>
+        <div className="header-section header-right">
+          {user ? userIcon : loginButton}
+        </div>
       </div>
-
       {content}
 
       {/* <div className="footer">

@@ -93,7 +93,7 @@ const App = () => {
       console.log("User Authed")
     } else {
       console.log("Not auth");
-      alert("Not a Northwestern user. Please log in with a vavlid Northwestern email address.")
+      alert("Not a Northwestern user. Please log in with a valid Northwestern email address.")
     }
   });
 
