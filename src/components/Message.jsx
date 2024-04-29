@@ -44,7 +44,6 @@ const Message = ({sellerId}) => {
             
         });
         setMessage("");
-        alert("Message successfully sent!");
       };
 
     return (

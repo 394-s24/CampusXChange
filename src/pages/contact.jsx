@@ -14,7 +14,7 @@ import { getDatabase, ref, get, set } from "firebase/database";
 import { getAuth, signOut } from "firebase/auth";
 
 // FIRESTORE
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 
 /* Components */
@@ -38,6 +38,8 @@ const signOutButton = () => {
 
 export default function Contact({ textbookCountRef, usersCountRef, curUser, firestore }) {
     const [user, setUser] = useState();
+    const [messages, setMessages] = useState([]);
+    const [selectedChatUserId, setSelectedChatUserId] = useState(null);
     const [profileOption, setProfileOption] = useState("Postings");
     const [activePriceFilter, setActivePriceFilter] = useState(Infinity);
     const [activeTags, setActiveTags] = useState([]);
@@ -129,34 +131,23 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
 
     }
 
-    async function getMessages() {
-        // Create a reference to the cities collection
+    useEffect(() => {
+        const fetchMessages = async () => {
+            const messagesQuery = query(collection(fs, "messages"), where("to", "==", params.userid));
+            const querySnapshot = await getDocs(messagesQuery);
+            const messagesData = [];
+            querySnapshot.forEach((doc) => {
+                messagesData.push(doc.data());
+            });
+            setMessages(messagesData);
+        };
+    
+        fetchMessages();
+    }, []);
 
-
-        //const messagesRef = await getDocs(collection(fs, "messages"));
-
-        //let data = [];
-
-        //messagesRef.forEach((doc) => {
-        //data.push(doc.data()); });
-        //console.log(firestore.collection);
-
-        //const messagesRef = firestore().collection('messages').get();
-
-        // Create a query against the collection
-        //const userMessages = messagesRef.where('uid', '==', params.userid);
-        //const userMessages2 = messagesRef.where('to', '==', params.userid);
-        //console.log(userMessages);
-        //console.log(userMessages2);
-
-        // userMessages: get the to field
-        
-        // userMessages2: get the uid field
-
-        // combine them, get unique
-
-    }
-    getMessages();
+    const handleChatClick = (userId) => {
+        setSelectedChatUserId(userId);
+    };
 
     useEffect(() => {
         get(ref(db, `users/` + params.userid)).then((snapshot) => {
@@ -246,40 +237,30 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
             {/* Only display the sidebar that selects user to message if viewing own profile */}
             {(curUser.uid == params.userid) &&
                 <div className="messages-list">
-                    <div className="message-option">
-                        <div className="message-option-image">
-
-                        </div>
-                        <div className="message-option-used">
-                            Jason Bourne
-                        </div>
-                    </div>
-                    <div className="message-option">
-                        <div className="message-option-image">
-
-                        </div>
-                        <div className="message-option-used">
-                            John Wick
-                        </div>
-                    </div>
-
-                    <div className="message-option">
-                        <div className="message-option-image">
-
-                        </div>
-                        <div className="message-option-used">
-                            Rachel Yao
-                        </div>
-                    </div>
-
+                    {user && curUser.uid === params.userid && (
+                                <div>
+                                    {messages.map((message, index) => (
+                                        <div key={index} className="message-option" onClick={() => handleChatClick(message.uid)}>
+                                            <div className="message-option-image"></div>
+                                            <div className="message-option-used">{message.name}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                 </div>
             }
+            {/* display all chats if viewing own profile */}
+            {user && curUser.uid === params.userid && selectedChatUserId && (
+                <Chat sellerId={selectedChatUserId}></Chat>
+            )}
 
-            <div className="message-selected">
-                {/* No Message Selected */}
+            {/* only display chat between seller and user on seller's Contact page */}
+            {!selectedChatUserId && (
+                <div className="message-selected">
+                    <Chat sellerId={params.userid}></Chat>
+                </div>
+            )}
 
-                <Chat sellerId={params.userid}></Chat>
-            </div>
         </div>
     )
 

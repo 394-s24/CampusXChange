@@ -7,8 +7,7 @@ const MessageBubble = ({ message, sellerId }) => {
     const [user] = useAuthState(getAuth());
 
     // only display messages between seller and user
-    console.log(sellerId)
-    if (!(message.uid == user.uid) && !(message.uid == sellerId)) {
+    if (!(message.uid == user.uid && message.to == sellerId) && !(message.uid == sellerId && message.to == user.uid)) {
         return null;
     }
 
