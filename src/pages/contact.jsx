@@ -231,6 +231,12 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
         </>
     )
 
+    const getColorForLetter = (letter) => {
+        const red = (letter * 70) % 256;
+        const green = (letter * 130) % 256;
+        const blue = (letter * 90) % 256;
+        return `rgb(${red}, ${green}, ${blue})`;
+    };
 
     const profileMessages = (
         <div className="messages-card">
@@ -241,7 +247,10 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
                                 <div>
                                     {messages.map((message, index) => (
                                         <div key={index} className="message-option" onClick={() => handleChatClick(message.uid)}>
-                                            <div className="message-option-image"></div>
+                                            <div className="message-option-image"
+                                            style={{ backgroundColor: getColorForLetter(message.name.toUpperCase().charCodeAt(0)) }}>
+                                                {message.name.toUpperCase().charAt(0)}
+                                            </div>
                                             <div className="message-option-used">{message.name}</div>
                                         </div>
                                     ))}
@@ -277,7 +286,10 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
         <div className="contact-wrapper">
             <div className="profile-info">
                 <div className="profile-card">
-                    <div className="profile-photo"></div>
+                    <div className="profile-photo"
+                    style={{ backgroundColor: getColorForLetter(user ? (user.name ? user.name.toUpperCase().charCodeAt(0) : `rgb(240, 240, 240)`) : `rgb(240, 240, 240)`) }}>
+                        {user ? (user.name ? user.name.toUpperCase().charAt(0) : "") : ""}
+                    </div>
                     <div className="profile-name">{user ? user.name : ""}</div>
                     <div className="profile-email">{user ? user.email : ""}</div>
                     {user ? (user.phoneNumber ? <div className="profile-number">{user.phoneNumber}</div> : null) : null}
