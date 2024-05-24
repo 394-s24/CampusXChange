@@ -1,19 +1,29 @@
-import {describe, expect, test} from 'vitest';
-import {fireEvent, render, screen} from '@testing-library/react';
+import { describe, expect, test } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import App from './App';
 
-describe('counter tests', () => {
-    
-  test("Counter should be 0 at the start", () => {
+describe('search bar tests', () => {
+  test('types "linear" in the search bar and checks for 1 specific item', async () => {
     render(<App />);
-    expect(screen.getByText('count is: 0')).toBeDefined();
-  });
 
-  test("Counter should increment by one when clicked", async () => {
-    render(<App />);
-    const counter = screen.getByRole('button');
-    fireEvent.click(counter);
-    expect(await screen.getByText('count is: 1')).toBeDefined();
-  });
+    // Find the search bar
+    const searchBar = screen.getByPlaceholderText('Search for an item');
 
+    // Type "linear" in the search bar
+    fireEvent.change(searchBar, { target: { value: 'linear' } });
+
+    // Wait for the element to appear
+    const itemInfoWrapper = await waitFor(() =>
+      screen.getByText((content, element) =>
+        element.tagName.toLowerCase() === 'div' &&
+        element.classList.contains('item-name') &&
+        content.includes('Linear Algebra and Its Applications')
+      )
+    );
+
+    // Check that the item is found and there is only one such item
+    expect(itemInfoWrapper).toBeInTheDocument();
+    expect(itemInfoWrapper).toHaveClass('item-name');
+  });
 });
