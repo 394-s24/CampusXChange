@@ -46,12 +46,12 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
 // checking if email matches the domain
-function validAccount(userEmail){
+export function validAccount(userEmail){
 	return userEmail.split('@')[1] == 'u.northwestern.edu';
 }
 
 // check if user exists before updating realtime db
-async function checkUserExists(userId) {
+export async function checkUserExists(userId) {
   const db = getDatabase();
 
   return get(ref(db, 'users/' + userId))
@@ -66,7 +66,7 @@ async function checkUserExists(userId) {
 }
 
 // write / update user data in realtime db
-async function writeUserData(userId, name, email) {
+export async function writeUserData(userId, name, email) {
   let res = await checkUserExists(userId);
   const db = getDatabase();
   if (!res) {
