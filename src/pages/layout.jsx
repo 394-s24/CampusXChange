@@ -5,13 +5,10 @@ import { faBars, faSearch, faEnvelope, faStore, faFilter, faUser } from '@fortaw
 
 import { useParams } from "react-router-dom";
 
-/* Firebase */
-import { getDatabase, ref, set, onValue } from "firebase/database";
-
 // firebase auth imports
 import { GoogleAuthProvider, signInWithPopup, getAuth, onAuthStateChanged } from "firebase/auth";
 // getting auth from app.jsx
-import { auth } from '../App';
+import { auth } from '../firebase';
 
 // the handle google for the sign in button
 const handleGoogle = async (e) => {

@@ -7,11 +7,7 @@ import logo from './logo.svg';
 import './App.css';
 
 /* Firebase */
-import { initializeApp } from "firebase/app"; // firebase
-import { getDatabase, ref, get, set } from "firebase/database";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
-
+import { app, auth, db, firestore, firebaseRef, userAuth, getData, setData } from './firebase';
 
 /* Pages */
 import Layout from "./pages/layout";
@@ -19,31 +15,6 @@ import Contact from "./pages/contact";
 import TextBooks from "./pages/products/textbooks";
 import Posting from "./pages/posting";
 
-// Firebase Config
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDfg5GzgVZFceNSIyv36G_s8r9D-HEpo3k",
-//   authDomain: "campus-xchange.firebaseapp.com",
-//   databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
-//   projectId: "campus-xchange",
-//   storageBucket: "campus-xchange.appspot.com",
-//   messagingSenderId: "517180626197",
-//   appId: "1:517180626197:web:abdcd3e001261317dc451c",
-//   measurementId: "G-P455SCVKCZ"
-// };
-
-const firebaseConfig = {
-  apiKey: "AIzaSyArOEMm9_9B8_7_QdgozYJtAtDvHqxlldI",
-  authDomain: "campusxchange-633a6.firebaseapp.com",
-  projectId: "campusxchange-633a6",
-  storageBucket: "campusxchange-633a6.appspot.com",
-  messagingSenderId: "1038793350652",
-  appId: "1:1038793350652:web:9b376b768866b9214b6679"
-};
-
-// initialize Firebase
-const app = initializeApp(firebaseConfig);
-// auth export
-export const auth = getAuth(app);
 
 // checking if email matches the domain
 export function validAccount(userEmail){
@@ -52,9 +23,7 @@ export function validAccount(userEmail){
 
 // check if user exists before updating realtime db
 export async function checkUserExists(userId) {
-  const db = getDatabase();
-
-  return get(ref(db, 'users/' + userId))
+  return getData(firebaseRef(db, 'users/' + userId))
     .then(snapshot => {
       console.log("snapshot.exists: ", snapshot.exists());
       return snapshot.exists();
@@ -68,10 +37,8 @@ export async function checkUserExists(userId) {
 // write / update user data in realtime db
 export async function writeUserData(userId, name, email) {
   let res = await checkUserExists(userId);
-  const db = getDatabase();
   if (!res) {
-    console.log("WRITING");
-    set(ref(db, 'users/' + userId), {
+    setData(firebaseRef(db, 'users/' + userId), {
       name: name,
       email: email,
       transactions: 0,
@@ -82,11 +49,9 @@ export async function writeUserData(userId, name, email) {
 }
 
 const App = () => {
-  const [user, setUser] = useState("")
-  const firestore = getFirestore(app);
+  const [user, setUser] = useState("");
 
-
-  onAuthStateChanged(auth, (user) => {
+  userAuth(auth, (user) => {
     if (validAccount(user.email)) {
       setUser(user);
       writeUserData(user.uid, user.displayName, user.email);
@@ -98,9 +63,8 @@ const App = () => {
   });
 
   // initialize Realtime Database and get a reference to the service
-  const database = getDatabase(app);
-  const textbookCountRef = ref(database, '/textbooks');
-  const usersCountRef = ref(database, '/users');
+  const textbookCountRef = firebaseRef(db, '/textbooks');
+  const usersCountRef = firebaseRef(db, '/users');
 
   return (
     <BrowserRouter>

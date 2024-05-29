@@ -6,7 +6,7 @@ import {
   onSnapshot,
   limit,
 } from "firebase/firestore";
-import { db } from "./Message";
+import { app, auth, db, firestore } from '../firebase';
 import Message from "./Message";
 import MessageBubble from "./MessageBubble";
 
@@ -16,7 +16,7 @@ const Chat = ( {sellerId} ) => {
     // query firestore for 20 msgs at a time
     useEffect(() => {
         const q = query(
-            collection(db, "messages"),
+            collection(firestore, "messages"),
             orderBy("createdAt", "desc"),
             limit(20)
         );
