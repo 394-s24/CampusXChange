@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.23% </span>
+                <span class="strong">21.95% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/67</span>
+                <span class='fraction'>9/41</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.23% </span>
+                <span class="strong">21.95% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/67</span>
+                <span class='fraction'>9/41</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,59 +103,7 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a>
-<a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a>
-<a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a>
-<a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a>
-<a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -197,43 +145,17 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 import './Message.css';
-import { auth } from '../App';
-import { getFirestore, addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 /* Firebase */
-import { initializeApp } from "firebase/app";
+import { app, auth, db, firestore } from '../firebase';
 &nbsp;
-// Firebase Config
-// const firebaseConfig = {
-//     apiKey: "AIzaSyDfg5GzgVZFceNSIyv36G_s8r9D-HEpo3k",
-//     authDomain: "campus-xchange.firebaseapp.com",
-//     databaseURL: "https://campus-xchange-default-rtdb.firebaseio.com",
-//     projectId: "campus-xchange",
-//     storageBucket: "campus-xchange.appspot.com",
-//     messagingSenderId: "517180626197",
-//     appId: "1:517180626197:web:abdcd3e001261317dc451c",
-//     measurementId: "G-P455SCVKCZ"
-//   };
-&nbsp;
-const firebaseConfig = {
-  apiKey: "AIzaSyArOEMm9_9B8_7_QdgozYJtAtDvHqxlldI",
-  authDomain: "campusxchange-633a6.firebaseapp.com",
-  projectId: "campusxchange-633a6",
-  storageBucket: "campusxchange-633a6.appspot.com",
-  messagingSenderId: "1038793350652",
-  appId: "1:1038793350652:web:9b376b768866b9214b6679"
-};
-  
-// initialize Firebase
-const app = initializeApp(firebaseConfig);
-&nbsp;
-export const db = getFirestore(app);
 const Message = <span class="fstat-no" title="function not covered" >({sellerId}) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    const [message, setMessage] = useState("");</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const send = async (event) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
 <span class="cstat-no" title="statement not covered" >        const { uid, displayName } = auth.currentUser;</span>
-<span class="cstat-no" title="statement not covered" >        await addDoc(collection(db, "messages"), {</span>
+<span class="cstat-no" title="statement not covered" >        await addDoc(collection(firestore, "messages"), {</span>
 <span class="cstat-no" title="statement not covered" >            name: displayName,</span>
 <span class="cstat-no" title="statement not covered" >            to: sellerId,</span>
 <span class="cstat-no" title="statement not covered" >            text: message,</span>
@@ -268,7 +190,7 @@ const Message = <span class="fstat-no" title="function not covered" >({sellerId}
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-05-24T20:19:04.079Z
+                at 2024-06-03T21:53:22.821Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
