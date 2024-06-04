@@ -92,7 +92,7 @@ export default function TextBooks({ textbookCountRef }) {
                     />
                 </div>
                 <div style={{"width":"1rem"}} />
-                <div className="filter-icon" onClick={handleToggleFilters}>
+                <div className="filter-icon" onClick={handleToggleFilters} data-testid="filter-icon">
                     <FontAwesomeIcon icon={faFilter} size="lg" />
                 </div>
             </div>
