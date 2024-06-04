@@ -22,6 +22,8 @@ import Chat from '../components/Chat';
 import ListingItem from '../components/ListingItem'
 import toast, { Toaster } from 'react-hot-toast';
 
+import checkPost from './functions/checkPost';
+
 const signOutButton = () => {
     const auth = getAuth();
     signOut(auth).then(() => {
@@ -48,7 +50,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
     const [filteredItems, setFilteredItems] = useState(data);
     const [toggleNewPost, setToggleNewPost] = useState(false);
     const [authors, setAuthors] = useState([""]);
-    const [tags, setTags] = useState([""]);
+    const [tags, setTags] = useState([]);
     const [nextItemNumber, setNextItemNumber] = useState(0);
 
     const itemslist = filteredItems.map((item, i) => {
@@ -102,33 +104,38 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
     }
 
     function handleSubmit(e) {
+        if (!checkPost(e, tags)) {
+            emptyFields()
+        } else {
 
-        try {
-            e.preventDefault();
-            const classValue = e.target.class.value;
-            const conditionValue = e.target.condition.value;
-            const descriptionValue = e.target.description.value;
-            const editionValue = e.target.edition.value;
-            const nameValue = e.target.name.value;
-            const priceValue = e.target.price.value;
+            try {
+                
+                const classValue = e.target.class.value;
+                const conditionValue = e.target.condition.value;
+                const descriptionValue = e.target.description.value;
+                const editionValue = e.target.edition.value;
+                const nameValue = e.target.name.value;
+                const priceValue = e.target.price.value;
 
-            set(ref(db, `textbooks/${nextItemNumber}`), {
-                Authors: authors,  // This one is already defined as a state
-                Class: classValue,
-                Condition: conditionValue,
-                Description: descriptionValue,
-                Edition: editionValue,
-                Name: nameValue,
-                Price: parseInt(priceValue),
-                Tags: tags,
-                Uid: curUser.uid,
-                Username: curUser.displayName
-            });
-            notify();
-        } catch {
-            emptyFields();
+                set(ref(db, `textbooks/${nextItemNumber}`), {
+                    Authors: authors,  // This one is already defined as a state
+                    Class: classValue,
+                    Condition: conditionValue,
+                    Description: descriptionValue,
+                    Edition: editionValue,
+                    Name: nameValue,
+                    Price: parseInt(priceValue),
+                    Tags: tags,
+                    Uid: curUser.uid,
+                    Username: curUser.displayName
+                });
+                notify();
+
+                return true
+            } catch {
+                return false
+            }
         }
-
     }
 
     useEffect(() => {
@@ -141,7 +148,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
             });
             setMessages(messagesData);
         };
-    
+
         fetchMessages();
     }, []);
 
@@ -244,18 +251,18 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
             {(curUser.uid == params.userid) &&
                 <div className="messages-list">
                     {user && curUser.uid === params.userid && (
-                                <div>
-                                    {messages.map((message, index) => (
-                                        <div key={index} className="message-option" onClick={() => handleChatClick(message.uid)}>
-                                            <div className="message-option-image"
-                                            style={{ backgroundColor: getColorForLetter(message.name.toUpperCase().charCodeAt(0)) }}>
-                                                {message.name.toUpperCase().charAt(0)}
-                                            </div>
-                                            <div className="message-option-used">{message.name}</div>
-                                        </div>
-                                    ))}
+                        <div>
+                            {messages.map((message, index) => (
+                                <div key={index} className="message-option" onClick={() => handleChatClick(message.uid)}>
+                                    <div className="message-option-image"
+                                        style={{ backgroundColor: getColorForLetter(message.name.toUpperCase().charCodeAt(0)) }}>
+                                        {message.name.toUpperCase().charAt(0)}
+                                    </div>
+                                    <div className="message-option-used">{message.name}</div>
                                 </div>
-                            )}
+                            ))}
+                        </div>
+                    )}
                 </div>
             }
             {/* display all chats if viewing own profile */}
@@ -287,7 +294,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
             <div className="profile-info">
                 <div className="profile-card">
                     <div className="profile-photo"
-                    style={{ backgroundColor: getColorForLetter(user ? (user.name ? user.name.toUpperCase().charCodeAt(0) : `rgb(240, 240, 240)`) : `rgb(240, 240, 240)`) }}>
+                        style={{ backgroundColor: getColorForLetter(user ? (user.name ? user.name.toUpperCase().charCodeAt(0) : `rgb(240, 240, 240)`) : `rgb(240, 240, 240)`) }}>
                         {user ? (user.name ? user.name.toUpperCase().charAt(0) : "") : ""}
                     </div>
                     <div className="profile-name">{user ? user.name : ""}</div>
