@@ -58,12 +58,10 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
     });
 
     const params = useParams();
-    console.log("params:", params);
     const db = getDatabase();
     const fs = getFirestore();
     const notify = () => toast('Post submitted!');
     const emptyFields = () => toast('Please fill in all fields.');
-
 
     function addAuthor(e) {
         // All buttons inside a form submit by default, so use e.preventDefault() to stop this behavior
@@ -208,7 +206,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
     const profilePostings = (
         <>
             <div className="postings-options">
-                {user ? (curUser.uid == params.userid ? <div className="postings-options">
+                {(curUser.uid == params.userid ? <div className="postings-options">
                     <div className="postings-option" onClick={() => setToggleNewPost(!toggleNewPost)}>
                         New Post
                     </div>
@@ -216,7 +214,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
                     {/* <div className='item-details-exit' onClick={() => toggleDetails("")}>
                         x
                     </div> */}
-                </div> : null) : null}
+                </div> : null)}
                 <div className="search-bar-wrapper">
                     <div className="search-bar">
                         <input className="search-input"
