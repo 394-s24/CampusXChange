@@ -16,7 +16,7 @@ vi.mock('react-hot-toast', () => ({
   }));
   
   // Mock firebase functions
-  vi.mock('../../qfirebase', () => {
+  vi.mock('../../firebase', () => {
     const initializeApp = vi.fn();
     const getAuth = vi.fn(() => ({
       currentUser: { uid: 'testUserId', displayName: 'Test User' },

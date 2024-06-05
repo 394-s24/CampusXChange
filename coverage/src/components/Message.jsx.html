@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.53% </span>
+                <span class="strong">67.34% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/49</span>
+                <span class='fraction'>33/49</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/2</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.53% </span>
+                <span class="strong">67.34% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/49</span>
+                <span class='fraction'>33/49</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,6 +122,9 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -138,26 +141,23 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 import './Message.css';
@@ -169,10 +169,10 @@ export function isValidMessage(msg) {
   return msg.length &gt; 0;
 }
 &nbsp;
-const Message = <span class="fstat-no" title="function not covered" >({sellerId}) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    const [message, setMessage] = useState("");</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const send = async (message) =&gt; {</span>
+const Message = ({sellerId}) =&gt; {
+    const [message, setMessage] = useState("");
+&nbsp;
+    const send = <span class="fstat-no" title="function not covered" >async (message) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (!isValidMessage(msg)) {</span>
 <span class="cstat-no" title="statement not covered" >          return false</span>
 <span class="cstat-no" title="statement not covered" >        }</span>
@@ -189,23 +189,23 @@ const Message = <span class="fstat-no" title="function not covered" >({sellerId}
 <span class="cstat-no" title="statement not covered" >        setMessage("");</span>
 <span class="cstat-no" title="statement not covered" >        return true</span>
 <span class="cstat-no" title="statement not covered" >      };</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return (</span>
-<span class="cstat-no" title="statement not covered" >      &lt;form onSubmit={(event) =&gt; send(event)} className="msg"&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;label htmlFor="messageInput" hidden&gt;</span>
-<span class="cstat-no" title="statement not covered" >          Enter Message</span>
-<span class="cstat-no" title="statement not covered" >        &lt;/label&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;input</span>
-<span class="cstat-no" title="statement not covered" >          type="text"</span>
-<span class="cstat-no" title="statement not covered" >          placeholder="send a message :)"</span>
-<span class="cstat-no" title="statement not covered" >          value={message}</span>
-<span class="cstat-no" title="statement not covered" >          onChange={(e) =&gt; setMessage(e.target.value)}</span>
-<span class="cstat-no" title="statement not covered" >          className="msg-input"</span>
-<span class="cstat-no" title="statement not covered" >        /&gt;</span>
-<span class="cstat-no" title="statement not covered" >        &lt;button type="submit" className="msg-send-button"&gt;Send&lt;/button&gt;</span>
-<span class="cstat-no" title="statement not covered" >      &lt;/form&gt;</span>
-<span class="cstat-no" title="statement not covered" >    );</span>
-<span class="cstat-no" title="statement not covered" >  };</span>
+&nbsp;
+    return (
+      &lt;form onSubmit={<span class="fstat-no" title="function not covered" >(event) =&gt; send(event)} c</span>lassName="msg"&gt;
+        &lt;label htmlFor="messageInput" hidden&gt;
+          Enter Message
+        &lt;/label&gt;
+        &lt;input
+          type="text"
+          placeholder="send a message :)"
+          value={message}
+          onChange={(e) =&gt; setMessage(e.target.value)}
+          className="msg-input"
+        /&gt;
+        &lt;button type="submit" className="msg-send-button"&gt;Send&lt;/button&gt;
+      &lt;/form&gt;
+    );
+  };
 &nbsp;
   export default Message;</pre></td></tr></table></pre>
 
@@ -214,7 +214,7 @@ const Message = <span class="fstat-no" title="function not covered" >({sellerId}
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-05T02:10:20.965Z
+                at 2024-06-05T23:01:11.244Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
