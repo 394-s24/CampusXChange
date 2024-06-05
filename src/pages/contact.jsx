@@ -329,7 +329,7 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
 
                         <h2> Create New Post </h2>
 
-                        <form onSubmit={(e) => handleSubmit(e)}>
+                        <form onSubmit={(e) => handleSubmit(e)} role="form">
                             {/* AUTHORS */}
                             {authors.map((author, i) =>
                                 <input key={i} name={"author" + i} placeholder='Type author name here' onChange={(e) => updateAuthor(i, e.target.value)} />)
