@@ -308,10 +308,11 @@ export default function Contact({ textbookCountRef, usersCountRef, curUser, fire
                         Messages
                     </div> : null) : null} */}
                     {/* Display Messages tab on the seller's profile too*/}
-                    {user ? (
+                    {/* {user ? ( */}
                         <div className="profile-option" onClick={() => setProfileOption("Messages")}>
                             Messages
-                        </div>) : null}
+                        </div>
+                    {/* ) : null} */}
 
                     {/* {user ? (curUser.uid == params.userid ? <div className="profile-option" onClick={() => setProfileOption("Settings")}>
                         Settings
