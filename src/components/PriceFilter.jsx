@@ -23,6 +23,7 @@ export default function PriceFilter({ text, activeFilter, setFilter, min, max })
                     type="checkbox"
                     checked={activeFilter == max}
                     onChange={handleChange}
+                    data-testid={`checkbox-under-${max}`}
                 />
             </div>
         </>
